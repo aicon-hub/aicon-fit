@@ -34,10 +34,11 @@ Unit tests:
   The animated demos are open licensed: each loop is motion-interpolated
   from that project's per-exercise photos into a smooth morph. No
   third-party or proprietary footage is used.
-- Push-up demo video: "Conditioning Drill - Eight Count T Push-Up",
-  U.S. Army Combat Fitness Test, public domain
-  (https://commons.wikimedia.org/wiki/File:Conditioning_Drill-_Eight_Count_T_Push-Up.webm),
-  trimmed to a loop. Shown with an on-screen credit line.
+- Demo videos: real footage where open licensed (Pushups: public domain
+  U.S. Army clip; Star Jump: Taco Fleur, CC BY-SA 4.0), and 3D demo
+  animations from free-exercise-db-with-videos (MIT licence, copyright
+  2026 Arham Wani) for 16 more exercises. Full notices in LICENSES.md.
+  Each video carries an on-screen credit line in the app.
 - Comfortaa font: SIL Open Font License 1.1
   (https://github.com/google/fonts/tree/main/ofl/comfortaa).
 - Motivational quotes: public-domain sayings plus short, famously
