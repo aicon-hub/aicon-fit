@@ -12,7 +12,9 @@ data class Exercise(
     val secondaryMuscles: List<String>,
     val instructions: List<String>,
     val category: String,
-    val anim: String
+    val anim: String,
+    val video: String? = null,
+    val videoCredit: String? = null
 ) {
     val group: String
         get() = when {
@@ -52,7 +54,9 @@ object ExerciseRepo {
                     secondaryMuscles = strList("secondaryMuscles"),
                     instructions = strList("instructions"),
                     category = o.optString("category", "strength"),
-                    anim = o.getString("anim")
+                    anim = o.getString("anim"),
+                    video = o.optString("video").ifEmpty { null },
+                    videoCredit = o.optString("videoCredit").ifEmpty { null }
                 )
             )
         }

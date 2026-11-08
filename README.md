@@ -31,9 +31,13 @@ Unit tests:
 
 - Exercise data and demo images: Free Exercise DB
   (https://github.com/yuhonas/free-exercise-db), public domain (Unlicense).
-  The animated demos are open licensed: each loop is derived from that
-  project's per-exercise photos and plays at natural exercise speed
-  (250 ms per frame). No third-party or proprietary video is used.
+  The animated demos are open licensed: each loop is motion-interpolated
+  from that project's per-exercise photos into a smooth morph. No
+  third-party or proprietary footage is used.
+- Push-up demo video: "Conditioning Drill - Eight Count T Push-Up",
+  U.S. Army Combat Fitness Test, public domain
+  (https://commons.wikimedia.org/wiki/File:Conditioning_Drill-_Eight_Count_T_Push-Up.webm),
+  trimmed to a loop. Shown with an on-screen credit line.
 - Comfortaa font: SIL Open Font License 1.1
   (https://github.com/google/fonts/tree/main/ofl/comfortaa).
 - Motivational quotes: public-domain sayings plus short, famously

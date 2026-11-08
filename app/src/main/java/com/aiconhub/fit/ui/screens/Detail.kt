@@ -24,7 +24,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import com.aiconhub.fit.AppViewModel
 import com.aiconhub.fit.data.WorkoutItem
-import com.aiconhub.fit.ui.AnimImage
+import com.aiconhub.fit.ui.DemoMedia
 
 @Composable
 fun DetailScreen(vm: AppViewModel, exerciseId: String) {
@@ -45,15 +45,24 @@ fun DetailScreen(vm: AppViewModel, exerciseId: String) {
     ) {
         Spacer(Modifier.height(12.dp))
         TextButton(onClick = { vm.pop() }) { Text("Back") }
-        AnimImage(
-            assetPath = e.anim,
+        DemoMedia(
+            video = e.video,
+            anim = e.anim,
             reduceMotion = vm.settings.reduceMotion,
-            contentDescription = "Animated demonstration of ${e.name}",
+            contentDescription = "Demonstration of ${e.name}",
             modifier = Modifier
                 .fillMaxWidth()
                 .aspectRatio(1.5f)
                 .clip(RoundedCornerShape(16.dp))
         )
+        if (e.videoCredit != null) {
+            Spacer(Modifier.height(4.dp))
+            Text(
+                e.videoCredit!!,
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+        }
         Spacer(Modifier.height(12.dp))
         Text(e.name, style = MaterialTheme.typography.headlineSmall)
         Spacer(Modifier.height(8.dp))

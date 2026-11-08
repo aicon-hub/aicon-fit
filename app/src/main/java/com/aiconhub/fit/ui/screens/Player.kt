@@ -46,7 +46,7 @@ import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.unit.dp
 import com.aiconhub.fit.AppViewModel
 import com.aiconhub.fit.data.WorkoutItem
-import com.aiconhub.fit.ui.AnimImage
+import com.aiconhub.fit.ui.DemoMedia
 import kotlinx.coroutines.delay
 
 private fun beep(enabled: Boolean, doubleBeep: Boolean = false) {
@@ -195,10 +195,11 @@ fun PlayerScreen(vm: AppViewModel, title: String, items: List<WorkoutItem>, plan
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
-        AnimImage(
-            assetPath = exercise?.anim ?: "",
+        DemoMedia(
+            video = exercise?.video,
+            anim = exercise?.anim ?: "",
             reduceMotion = vm.settings.reduceMotion,
-            contentDescription = "Animated demonstration of ${exercise?.name ?: "exercise"}",
+            contentDescription = "Demonstration of ${exercise?.name ?: "exercise"}",
             modifier = Modifier
                 .fillMaxWidth()
                 .aspectRatio(1.5f)
