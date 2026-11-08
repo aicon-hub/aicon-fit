@@ -102,7 +102,7 @@ fun LibraryScreen(vm: AppViewModel) {
                                     color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
                                 Text(
-                                    e.level.replaceFirstChar { it.uppercase() } + " - " + e.equipment,
+                                    e.level.replaceFirstChar { it.uppercase() } + " - " + if (e.equipment == "body only") "No equipment" else e.equipment,
                                     style = MaterialTheme.typography.bodySmall,
                                     color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )

@@ -2,6 +2,9 @@ package com.aiconhub.fit
 
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onRoot
+import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
 import com.aiconhub.fit.ui.FitTheme
 import com.github.takahirom.roborazzi.captureRoboImage
 import org.junit.Rule
@@ -91,6 +94,22 @@ class ScreenshotTest {
         composeRule.setContent { FitTheme(highContrast = false) { AppRoot(vm) } }
         composeRule.waitForIdle()
         composeRule.onRoot().captureRoboImage("build/roborazzi/player.png")
+    }
+
+    @Test
+    fun playerSecondExercise() {
+        val vm = vm(fresh = false)
+        vm.startQuick("Full body A", com.aiconhub.fit.data.PlanRepo.byId("starter_full_body")!!.days[0].items)
+        composeRule.setContent { FitTheme(highContrast = false) { AppRoot(vm) } }
+        composeRule.waitForIdle()
+        // Finish all 3 sets of exercise 1, skipping each rest, land on exercise 2.
+        repeat(3) {
+            composeRule.onNodeWithText("Set done").performClick(); composeRule.waitForIdle()
+            composeRule.onNodeWithText("Skip rest").performClick(); composeRule.waitForIdle()
+        }
+        composeRule.onNodeWithText("Pushups").assertIsDisplayed()
+        composeRule.onNodeWithText("Exercise 2 of 4").assertIsDisplayed()
+        composeRule.onRoot().captureRoboImage("build/roborazzi/player2.png")
     }
 
     @Test

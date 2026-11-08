@@ -1,13 +1,13 @@
 # AiCoN Fit
 
-Free Android fitness app from AiCoN. Guided workouts with animated exercise
-demos that show exactly what to do. No ads, no accounts, no tracking. All
-data stays on the phone.
+Free Android fitness app from AiCoN. Guided no-equipment workouts with
+animated exercise demos that show exactly what to do. No ads, no accounts,
+no tracking. All data stays on the phone.
 
 ## Features (MVP)
 
-- 49 exercises with animated demos and step-by-step instructions
-- 4 guided plans: Starter Full Body, Core Foundation, Sweat Express, Dumbbell Basics
+- 31 no-equipment exercises with animated demos and step-by-step instructions
+- 4 guided plans: Starter Full Body, Core Foundation, Sweat Express, Bodyweight Plus
 - Workout player with set, rep and rest timers, sounds and haptics
 - Custom workout builder
 - Onboarding, metric and imperial units, basic history and streaks
@@ -28,6 +28,9 @@ Unit tests:
 
 - Exercise data and demo images: Free Exercise DB
   (https://github.com/yuhonas/free-exercise-db), public domain (Unlicense).
+  The animated demos are open licensed: each loop is derived from that
+  project's per-exercise photos and plays at natural exercise speed
+  (250 ms per frame). No third-party or proprietary video is used.
 - Comfortaa font: SIL Open Font License 1.1
   (https://github.com/google/fonts/tree/main/ofl/comfortaa).
 - AiCoN logo and brand: AiCoN. Do not alter the logo.

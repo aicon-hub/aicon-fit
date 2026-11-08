@@ -58,7 +58,7 @@ fun PlansScreen(vm: AppViewModel) {
                         }
                         Spacer(Modifier.height(4.dp))
                         Text(
-                            "${p.level} - ${p.weeks} weeks - ${p.daysPerWeek} days a week - ${p.equipment}",
+                            "${p.level} - ${p.weeks} weeks - ${p.daysPerWeek} days a week - ${if (p.equipment == "None") "No equipment" else p.equipment}",
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )

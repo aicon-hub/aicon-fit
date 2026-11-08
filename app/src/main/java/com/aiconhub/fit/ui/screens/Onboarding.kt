@@ -67,7 +67,7 @@ fun OnboardingScreen(vm: AppViewModel) {
                     Text("Welcome to AiCoN Fit", style = MaterialTheme.typography.headlineSmall)
                     Spacer(Modifier.height(12.dp))
                     Text(
-                        "Guided workouts with animated demos that show you exactly what to do.",
+                        "No-equipment workouts with animated demos that show you exactly what to do.",
                         style = MaterialTheme.typography.bodyLarge,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )

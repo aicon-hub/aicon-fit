@@ -145,7 +145,7 @@ object PlanRepo {
                 PlanDay("Day 2: Power", listOf(
                     item("Knee_Tuck_Jump", 3, seconds = 30, rest = 45),
                     item("Pushups", 3, reps = 10, rest = 45),
-                    item("Scissors_Jump", 3, seconds = 40, rest = 30),
+                    item("Double_Leg_Butt_Kick", 3, seconds = 40, rest = 30),
                     item("Mountain_Climbers", 3, seconds = 40, rest = 30)
                 )),
                 PlanDay("Day 3: Mix", listOf(
@@ -163,7 +163,7 @@ object PlanRepo {
                 PlanDay("Day 5: Power, round 2", listOf(
                     item("Knee_Tuck_Jump", 4, seconds = 30, rest = 40),
                     item("Pushups", 4, reps = 10, rest = 40),
-                    item("Scissors_Jump", 4, seconds = 40, rest = 25),
+                    item("Double_Leg_Butt_Kick", 4, seconds = 40, rest = 25),
                     item("Mountain_Climbers", 4, seconds = 40, rest = 25)
                 )),
                 PlanDay("Day 6: Mix, round 2", listOf(
@@ -175,52 +175,48 @@ object PlanRepo {
             )
         ),
         Plan(
-            id = "dumbbell_basics",
-            name = "Dumbbell Basics",
-            description = "Two weeks of simple dumbbell strength work. Three days a week, about 25 minutes. You need one pair of dumbbells.",
-            level = "Beginner",
+            id = "bodyweight_plus",
+            name = "Bodyweight Plus",
+            description = "Harder no-equipment moves for two weeks. Three days a week, about 25 minutes. Nothing needed but floor space.",
+            level = "Intermediate",
             weeks = 2,
             daysPerWeek = 3,
-            equipment = "Dumbbells",
+            equipment = "None",
             days = listOf(
-                PlanDay("Day 1: Upper", listOf(
-                    item("Dumbbell_Bench_Press", 3, reps = 10, rest = 60),
-                    item("One-Arm_Dumbbell_Row", 3, reps = 10, rest = 60),
-                    item("Dumbbell_Shoulder_Press", 3, reps = 10, rest = 60),
-                    item("Dumbbell_Bicep_Curl", 3, reps = 12)
+                PlanDay("Day 1: Push and core", listOf(
+                    item("Decline_Push-Up", 3, reps = 8, rest = 60),
+                    item("Push-Up_Wide", 3, reps = 10, rest = 60),
+                    item("Tuck_Crunch", 3, reps = 12),
+                    item("Side_Bridge", 3, seconds = 30, rest = 45)
                 )),
-                PlanDay("Day 2: Lower", listOf(
-                    item("Goblet_Squat", 3, reps = 10, rest = 60),
-                    item("Dumbbell_Lunges", 3, reps = 10, rest = 60),
-                    item("Stiff-Legged_Dumbbell_Deadlift", 3, reps = 10, rest = 60),
-                    item("Standing_Dumbbell_Calf_Raise", 3, reps = 15)
+                PlanDay("Day 2: Legs and glutes", listOf(
+                    item("Crossover_Reverse_Lunge", 3, reps = 10, rest = 60),
+                    item("Single_Leg_Glute_Bridge", 3, reps = 10),
+                    item("Step-up_with_Knee_Raise", 3, reps = 12, rest = 60),
+                    item("Glute_Kickback", 3, reps = 12)
                 )),
                 PlanDay("Day 3: Full body", listOf(
-                    item("Dumbbell_Squat", 3, reps = 10, rest = 60),
-                    item("Dumbbell_Bench_Press", 3, reps = 10, rest = 60),
-                    item("Bent_Over_Two-Dumbbell_Row", 3, reps = 10, rest = 60),
-                    item("Alternate_Hammer_Curl", 3, reps = 12),
-                    item("Tricep_Dumbbell_Kickback", 3, reps = 12)
+                    item("Inchworm", 3, reps = 8, rest = 60),
+                    item("Push_Up_to_Side_Plank", 3, reps = 8, rest = 60),
+                    item("Bodyweight_Walking_Lunge", 3, reps = 12),
+                    item("Superman", 3, reps = 12)
                 )),
-                PlanDay("Day 4: Upper, round 2", listOf(
-                    item("Dumbbell_Bench_Press", 4, reps = 10, rest = 60),
-                    item("One-Arm_Dumbbell_Row", 4, reps = 10, rest = 60),
-                    item("Dumbbell_Shoulder_Press", 4, reps = 10, rest = 60),
-                    item("Hammer_Curls", 3, reps = 12),
-                    item("Dumbbell_Tricep_Extension_-Pronated_Grip", 3, reps = 12)
+                PlanDay("Day 4: Push and core, round 2", listOf(
+                    item("Decline_Push-Up", 4, reps = 8, rest = 60),
+                    item("Push-Up_Wide", 4, reps = 10, rest = 60),
+                    item("Tuck_Crunch", 4, reps = 12),
+                    item("Side_Bridge", 3, seconds = 40, rest = 45)
                 )),
-                PlanDay("Day 5: Lower, round 2", listOf(
-                    item("Goblet_Squat", 4, reps = 10, rest = 60),
-                    item("Dumbbell_Lunges", 4, reps = 10, rest = 60),
-                    item("Stiff-Legged_Dumbbell_Deadlift", 4, reps = 10, rest = 60),
-                    item("Standing_Dumbbell_Calf_Raise", 4, reps = 15),
-                    item("Single_Leg_Glute_Bridge", 3, reps = 10)
+                PlanDay("Day 5: Legs and glutes, round 2", listOf(
+                    item("Crossover_Reverse_Lunge", 4, reps = 10, rest = 60),
+                    item("Single_Leg_Glute_Bridge", 4, reps = 10),
+                    item("Step-up_with_Knee_Raise", 4, reps = 12, rest = 60),
+                    item("Glute_Kickback", 4, reps = 12)
                 )),
                 PlanDay("Day 6: Full body, round 2", listOf(
-                    item("Dumbbell_Squat", 4, reps = 10, rest = 60),
-                    item("Dumbbell_Flyes", 3, reps = 12, rest = 60),
-                    item("Bent_Over_Two-Dumbbell_Row", 4, reps = 10, rest = 60),
-                    item("Front_Dumbbell_Raise", 3, reps = 12),
+                    item("Inchworm", 4, reps = 8, rest = 60),
+                    item("Push_Up_to_Side_Plank", 4, reps = 8, rest = 60),
+                    item("Bodyweight_Walking_Lunge", 4, reps = 12),
                     item("Plank", 3, seconds = 45, rest = 60)
                 ))
             )

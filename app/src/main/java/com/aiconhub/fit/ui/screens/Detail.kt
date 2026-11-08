@@ -59,7 +59,7 @@ fun DetailScreen(vm: AppViewModel, exerciseId: String) {
         Spacer(Modifier.height(8.dp))
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             SuggestionChip(onClick = {}, label = { Text(e.level.replaceFirstChar { it.uppercase() }) })
-            SuggestionChip(onClick = {}, label = { Text(e.equipment.replaceFirstChar { it.uppercase() }) })
+            SuggestionChip(onClick = {}, label = { Text(if (e.equipment == "body only") "No equipment" else e.equipment.replaceFirstChar { it.uppercase() }) })
             SuggestionChip(onClick = {}, label = { Text(e.group) })
         }
         if (e.secondaryMuscles.isNotEmpty()) {
