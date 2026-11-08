@@ -154,21 +154,24 @@ fun PlayerScreen(vm: AppViewModel, title: String, items: List<WorkoutItem>, plan
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            BrandMark(96, "AiCoN logo")
-            Spacer(Modifier.height(20.dp))
-            Text("Workout done", style = MaterialTheme.typography.headlineMedium)
+            Text("🎉", style = MaterialTheme.typography.displayMedium)
             Spacer(Modifier.height(8.dp))
+            Text("Workout done", style = MaterialTheme.typography.headlineMedium)
+            Spacer(Modifier.height(4.dp))
             Text(
-                "$title - ${items.size} exercises",
+                title,
                 style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
-            Spacer(Modifier.height(4.dp))
-            Text(
-                "Saved to your history.",
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
+            Spacer(Modifier.height(20.dp))
+            val minutes = ((System.currentTimeMillis() - startedAt) / 60000L).toInt().coerceAtLeast(1)
+            Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                StatCard("$minutes", "Minutes", Modifier.weight(1f))
+                StatCard("${items.size}", "Exercises", Modifier.weight(1f))
+                StatCard("${vm.streakDays()}", "Day streak", Modifier.weight(1f))
+            }
+            Spacer(Modifier.height(16.dp))
+            com.aiconhub.fit.ui.QuoteCard(com.aiconhub.fit.data.Quotes.random())
             Spacer(Modifier.height(24.dp))
             Button(onClick = { vm.pop() }, modifier = Modifier.fillMaxWidth()) { Text("Done") }
         }

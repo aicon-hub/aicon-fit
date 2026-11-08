@@ -27,6 +27,7 @@ sealed interface Screen {
     data class PlanDetail(val planId: String) : Screen
     data object Custom : Screen
     data class CustomEdit(val workoutId: String?) : Screen
+    data object Quiz : Screen
     data object Settings : Screen
     data class Player(val title: String, val items: List<WorkoutItem>, val planDayKey: String?) : Screen
 }

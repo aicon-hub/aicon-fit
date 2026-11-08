@@ -42,7 +42,7 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun OnboardingScreen(vm: AppViewModel) {
-    val pager = rememberPagerState(pageCount = { 3 })
+    val pager = rememberPagerState(pageCount = { 4 })
     val scope = rememberCoroutineScope()
     var name by remember { mutableStateOf(vm.profile.name) }
     var heightText by remember { mutableStateOf(if (vm.profile.heightCm > 0) vm.profile.heightCm.toInt().toString() else "") }
@@ -132,6 +132,22 @@ fun OnboardingScreen(vm: AppViewModel) {
                         modifier = Modifier.fillMaxWidth()
                     )
                 }
+                2 -> Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .verticalScroll(rememberScrollState())
+                ) {
+                    Spacer(Modifier.height(24.dp))
+                    Text("Your goals", style = MaterialTheme.typography.headlineSmall)
+                    Spacer(Modifier.height(6.dp))
+                    Text(
+                        "Answer a few questions and AiCoN Fit curates your plan and exercise picks.",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    Spacer(Modifier.height(8.dp))
+                    QuizForm(vm)
+                }
                 else -> Column(
                     modifier = Modifier.fillMaxSize(),
                     verticalArrangement = Arrangement.Center
@@ -173,7 +189,7 @@ fun OnboardingScreen(vm: AppViewModel) {
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center
         ) {
-            repeat(3) { i ->
+            repeat(4) { i ->
                 val selected = pager.currentPage == i
                 Surface(
                     modifier = Modifier
@@ -187,7 +203,7 @@ fun OnboardingScreen(vm: AppViewModel) {
         }
         Spacer(Modifier.height(16.dp))
         Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-            if (pager.currentPage < 2) {
+            if (pager.currentPage < 3) {
                 TextButton(onClick = {
                     vm.finishOnboarding()
                 }) { Text("Skip") }
@@ -206,6 +222,7 @@ fun OnboardingScreen(vm: AppViewModel) {
                             heightCm = com.aiconhub.fit.util.Units.parseHeight(heightText, units) ?: vm.profile.heightCm,
                             weightKg = com.aiconhub.fit.util.Units.parseWeight(weightText, units) ?: vm.profile.weightKg
                         )
+                        vm.profile = vm.profile.copy(quizDone = true)
                         vm.persistProfile()
                         vm.persistSettings()
                         vm.finishOnboarding()

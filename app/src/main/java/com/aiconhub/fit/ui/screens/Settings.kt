@@ -1,6 +1,7 @@
 package com.aiconhub.fit.ui.screens
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -24,6 +25,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.aiconhub.fit.AppViewModel
@@ -121,6 +123,28 @@ fun SettingsScreen(vm: AppViewModel) {
                 singleLine = true,
                 modifier = Modifier.fillMaxWidth()
             )
+            Spacer(Modifier.height(20.dp))
+
+            SectionTitle("Personal plan")
+            Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)) {
+                Row(
+                    modifier = Modifier.fillMaxWidth().padding(16.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Column(Modifier.weight(1f)) {
+                        Text(
+                            "${vm.profile.goal} - ${vm.profile.level}",
+                            style = MaterialTheme.typography.titleSmall
+                        )
+                        Text(
+                            "${vm.profile.daysPerWeek} days a week - ${vm.profile.minutesPerDay} min a day",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                    TextButton(onClick = { vm.push(Screen.Quiz) }) { Text("Retake quiz") }
+                }
+            }
             Spacer(Modifier.height(20.dp))
 
             SectionTitle("Accessibility")

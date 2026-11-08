@@ -10,7 +10,12 @@ data class Profile(
     var heightCm: Double = 170.0,
     var weightKg: Double = 70.0,
     var units: String = "metric",
-    var goal: String = "Get fit"
+    var goal: String = "Get fit",
+    var level: String = "Beginner",
+    var daysPerWeek: Int = 3,
+    var minutesPerDay: Int = 20,
+    var limitations: String = "",
+    var quizDone: Boolean = false
 )
 
 data class AppSettings(
@@ -52,7 +57,12 @@ class Store(private val context: Context) {
                 heightCm = p.optDouble("heightCm", 170.0),
                 weightKg = p.optDouble("weightKg", 70.0),
                 units = p.optString("units", "metric"),
-                goal = p.optString("goal", "Get fit")
+                goal = p.optString("goal", "Get fit"),
+                level = p.optString("level", "Beginner"),
+                daysPerWeek = p.optInt("daysPerWeek", 3),
+                minutesPerDay = p.optInt("minutesPerDay", 20),
+                limitations = p.optString("limitations", ""),
+                quizDone = p.optBoolean("quizDone", false)
             )
             val s = o.optJSONObject("settings")
             if (s != null) settings = AppSettings(
@@ -105,7 +115,12 @@ class Store(private val context: Context) {
                 .put("heightCm", profile.heightCm)
                 .put("weightKg", profile.weightKg)
                 .put("units", profile.units)
-                .put("goal", profile.goal))
+                .put("goal", profile.goal)
+                .put("level", profile.level)
+                .put("daysPerWeek", profile.daysPerWeek)
+                .put("minutesPerDay", profile.minutesPerDay)
+                .put("limitations", profile.limitations)
+                .put("quizDone", profile.quizDone))
             o.put("settings", JSONObject()
                 .put("reduceMotion", settings.reduceMotion)
                 .put("highContrast", settings.highContrast)

@@ -113,6 +113,15 @@ class ScreenshotTest {
     }
 
     @Test
+    fun quiz() {
+        val vm = vm(fresh = false)
+        vm.push(Screen.Quiz)
+        composeRule.setContent { FitTheme(highContrast = false) { AppRoot(vm) } }
+        composeRule.waitForIdle()
+        composeRule.onRoot().captureRoboImage("build/roborazzi/quiz.png")
+    }
+
+    @Test
     fun settings() {
         val vm = vm(fresh = false)
         vm.goRoot(Screen.Settings)

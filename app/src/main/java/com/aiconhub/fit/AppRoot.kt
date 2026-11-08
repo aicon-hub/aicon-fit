@@ -13,6 +13,7 @@ import com.aiconhub.fit.ui.screens.LibraryScreen
 import com.aiconhub.fit.ui.screens.OnboardingScreen
 import com.aiconhub.fit.ui.screens.PlanDetailScreen
 import com.aiconhub.fit.ui.screens.PlansScreen
+import com.aiconhub.fit.ui.screens.QuizScreen
 import com.aiconhub.fit.ui.screens.PlayerScreen
 import com.aiconhub.fit.ui.screens.SettingsScreen
 
@@ -28,6 +29,7 @@ fun AppRoot(vm: AppViewModel) {
             is Screen.PlanDetail -> PlanDetailScreen(vm, s.planId)
             is Screen.Custom -> CustomScreen(vm)
             is Screen.CustomEdit -> CustomEditScreen(vm, s.workoutId)
+            is Screen.Quiz -> QuizScreen(vm) { vm.pop() }
             is Screen.Settings -> SettingsScreen(vm)
             is Screen.Player -> PlayerScreen(vm, s.title, s.items, s.planDayKey)
         }
