@@ -1,7 +1,12 @@
 package com.aiconhub.fit
 
 import androidx.activity.compose.BackHandler
-import androidx.compose.animation.Crossfade
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.scaleIn
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -38,7 +43,14 @@ fun AppRoot(vm: AppViewModel, showSplash: Boolean = true) {
         if (!booted) {
             SplashScreen()
         } else {
-            Crossfade(targetState = vm.stack.last(), label = "screen") { s ->
+            AnimatedContent(
+                targetState = vm.stack.last(),
+                transitionSpec = {
+                    (fadeIn(tween(260)) + scaleIn(tween(260), initialScale = 0.97f))
+                        .togetherWith(fadeOut(tween(200)))
+                },
+                label = "screen"
+            ) { s ->
                 when (s) {
                     is Screen.Onboarding -> OnboardingScreen(vm)
                     is Screen.Home -> HomeScreen(vm)

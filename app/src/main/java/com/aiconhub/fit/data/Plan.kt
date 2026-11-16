@@ -53,14 +53,14 @@ object PlanRepo {
                 )),
                 PlanDay("Day 2: Full body B", listOf(
                     item("Bodyweight_Walking_Lunge", 3, reps = 10),
-                    item("Incline_Push-Up", 3, reps = 10),
+                    item("Isometric_Chest_Squeezes", 3, reps = 10),
                     item("Superman", 3, reps = 10),
                     item("Dead_Bug", 3, reps = 8)
                 )),
                 PlanDay("Day 3: Full body C", listOf(
                     item("Bodyweight_Squat", 3, reps = 12),
                     item("Pushups", 3, reps = 10, rest = 60),
-                    item("Flat_Bench_Lying_Leg_Raise", 3, reps = 10),
+                    item("Leg_Lift", 3, reps = 10),
                     item("Push_Up_to_Side_Plank", 3, reps = 6, rest = 60)
                 )),
                 PlanDay("Day 4: Full body A, round 2", listOf(
@@ -71,14 +71,14 @@ object PlanRepo {
                 )),
                 PlanDay("Day 5: Full body B, round 2", listOf(
                     item("Bodyweight_Walking_Lunge", 4, reps = 10),
-                    item("Incline_Push-Up", 4, reps = 12),
+                    item("Isometric_Chest_Squeezes", 4, reps = 12),
                     item("Superman", 4, reps = 12),
                     item("Dead_Bug", 4, reps = 10)
                 )),
                 PlanDay("Day 6: Full body C, round 2", listOf(
                     item("Freehand_Jump_Squat", 3, reps = 8),
                     item("Pushups", 4, reps = 10, rest = 60),
-                    item("Flat_Bench_Lying_Leg_Raise", 4, reps = 12),
+                    item("Leg_Lift", 4, reps = 12),
                     item("Plank", 3, seconds = 45, rest = 60)
                 ))
             )
@@ -184,7 +184,7 @@ object PlanRepo {
             equipment = "None",
             days = listOf(
                 PlanDay("Day 1: Push and core", listOf(
-                    item("Decline_Push-Up", 3, reps = 8, rest = 60),
+                    item("Clock_Push-Up", 3, reps = 8, rest = 60),
                     item("Push-Up_Wide", 3, reps = 10, rest = 60),
                     item("Tuck_Crunch", 3, reps = 12),
                     item("Side_Bridge", 3, seconds = 30, rest = 45)
@@ -192,7 +192,7 @@ object PlanRepo {
                 PlanDay("Day 2: Legs and glutes", listOf(
                     item("Crossover_Reverse_Lunge", 3, reps = 10, rest = 60),
                     item("Single_Leg_Glute_Bridge", 3, reps = 10),
-                    item("Step-up_with_Knee_Raise", 3, reps = 12, rest = 60),
+                    item("Lateral_Bound", 3, reps = 12, rest = 60),
                     item("Glute_Kickback", 3, reps = 12)
                 )),
                 PlanDay("Day 3: Full body", listOf(
@@ -202,7 +202,7 @@ object PlanRepo {
                     item("Superman", 3, reps = 12)
                 )),
                 PlanDay("Day 4: Push and core, round 2", listOf(
-                    item("Decline_Push-Up", 4, reps = 8, rest = 60),
+                    item("Clock_Push-Up", 4, reps = 8, rest = 60),
                     item("Push-Up_Wide", 4, reps = 10, rest = 60),
                     item("Tuck_Crunch", 4, reps = 12),
                     item("Side_Bridge", 3, seconds = 40, rest = 45)
@@ -210,7 +210,7 @@ object PlanRepo {
                 PlanDay("Day 5: Legs and glutes, round 2", listOf(
                     item("Crossover_Reverse_Lunge", 4, reps = 10, rest = 60),
                     item("Single_Leg_Glute_Bridge", 4, reps = 10),
-                    item("Step-up_with_Knee_Raise", 4, reps = 12, rest = 60),
+                    item("Lateral_Bound", 4, reps = 12, rest = 60),
                     item("Glute_Kickback", 4, reps = 12)
                 )),
                 PlanDay("Day 6: Full body, round 2", listOf(
@@ -296,7 +296,7 @@ object PlanRepo {
                 )),
                 PlanDay("Day 3: Circuit C", listOf(
                     item("Double_Leg_Butt_Kick", 2, seconds = 30, rest = 20),
-                    item("Incline_Push-Up", 2, reps = 10, rest = 20),
+                    item("Push-Ups_-_Close_Triceps_Position", 2, reps = 10, rest = 20),
                     item("Reverse_Crunch", 2, reps = 12, rest = 20),
                     item("Plank", 2, seconds = 30, rest = 20)
                 )),
@@ -314,7 +314,7 @@ object PlanRepo {
                 )),
                 PlanDay("Day 6: Circuit C, round 2", listOf(
                     item("Double_Leg_Butt_Kick", 3, seconds = 30, rest = 20),
-                    item("Incline_Push-Up", 3, reps = 10, rest = 20),
+                    item("Push-Ups_-_Close_Triceps_Position", 3, reps = 10, rest = 20),
                     item("Reverse_Crunch", 3, reps = 12, rest = 20),
                     item("Plank", 2, seconds = 40, rest = 20)
                 )),

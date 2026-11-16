@@ -18,13 +18,14 @@ fun AnimImage(
     assetPath: String,
     reduceMotion: Boolean,
     contentDescription: String?,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    crop: Boolean = false
 ) {
     AndroidView(
         modifier = modifier,
         factory = { ctx ->
             ImageView(ctx).apply {
-                scaleType = ImageView.ScaleType.FIT_CENTER
+                scaleType = if (crop) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_CENTER
             }
         },
         update = { view ->

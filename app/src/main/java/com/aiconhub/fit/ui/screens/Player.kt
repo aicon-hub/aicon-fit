@@ -5,6 +5,16 @@ import android.media.AudioManager
 import android.media.ToneGenerator
 import android.view.HapticFeedbackConstants
 import android.view.WindowManager
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -34,6 +44,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -42,12 +53,14 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.unit.dp
 import com.aiconhub.fit.AppViewModel
 import com.aiconhub.fit.data.Quotes
 import com.aiconhub.fit.data.WorkoutItem
+import com.aiconhub.fit.ui.Confetti
 import com.aiconhub.fit.ui.DemoMedia
 import com.aiconhub.fit.ui.QuoteCard
 import kotlinx.coroutines.delay
@@ -151,35 +164,52 @@ fun PlayerScreen(vm: AppViewModel, title: String, items: List<WorkoutItem>, plan
     }
 
     if (phase == "done") {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .systemBarsPadding()
-                .verticalScroll(rememberScrollState())
-                .padding(24.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
-        ) {
-            Text("🎉", style = MaterialTheme.typography.displayMedium)
-            Spacer(Modifier.height(8.dp))
-            Text("Workout done", style = MaterialTheme.typography.headlineMedium)
-            Spacer(Modifier.height(4.dp))
-            Text(
-                title,
-                style = MaterialTheme.typography.bodyLarge,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+        val trophyScale = remember { Animatable(0.3f) }
+        LaunchedEffect(Unit) {
+            trophyScale.animateTo(1f, spring(dampingRatio = 0.45f, stiffness = 260f))
+        }
+        Box(modifier = Modifier.fillMaxSize()) {
+            Confetti(
+                modifier = Modifier.fillMaxSize(),
+                reduceMotion = vm.settings.reduceMotion
             )
-            Spacer(Modifier.height(20.dp))
-            val minutes = ((System.currentTimeMillis() - startedAt) / 60000L).toInt().coerceAtLeast(1)
-            Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                StatCard("$minutes", "Minutes", Modifier.weight(1f))
-                StatCard("${items.size}", "Exercises", Modifier.weight(1f))
-                StatCard("${vm.streakDays()}", "Day streak", Modifier.weight(1f))
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .systemBarsPadding()
+                    .verticalScroll(rememberScrollState())
+                    .padding(24.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                Text(
+                    "🏆",
+                    style = MaterialTheme.typography.displayLarge,
+                    modifier = Modifier.graphicsLayer {
+                        scaleX = trophyScale.value
+                        scaleY = trophyScale.value
+                    }
+                )
+                Spacer(Modifier.height(10.dp))
+                Text("You did it.", style = MaterialTheme.typography.headlineLarge)
+                Spacer(Modifier.height(4.dp))
+                val minutes = ((System.currentTimeMillis() - startedAt) / 60000L).toInt().coerceAtLeast(1)
+                Text(
+                    "$title, finished. $minutes minutes well spent.",
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+                Spacer(Modifier.height(20.dp))
+                Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                    StatCard("$minutes", "Minutes", Modifier.weight(1f))
+                    StatCard("${items.size}", "Exercises", Modifier.weight(1f))
+                    StatCard("${vm.streakDays()}", "Day streak", Modifier.weight(1f))
+                }
+                Spacer(Modifier.height(16.dp))
+                QuoteCard(Quotes.random())
+                Spacer(Modifier.height(24.dp))
+                EmberButton("Back to today", onClick = { vm.pop() }, modifier = Modifier.fillMaxWidth())
             }
-            Spacer(Modifier.height(16.dp))
-            QuoteCard(Quotes.random())
-            Spacer(Modifier.height(24.dp))
-            EmberButton("Done", onClick = { vm.pop() }, modifier = Modifier.fillMaxWidth())
         }
         return
     }
@@ -201,25 +231,42 @@ fun PlayerScreen(vm: AppViewModel, title: String, items: List<WorkoutItem>, plan
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
+        val setProgress by animateFloatAsState(
+            targetValue = if (totalSets > 0) doneSets / totalSets.toFloat() else 0f,
+            animationSpec = spring(dampingRatio = 0.7f, stiffness = 200f),
+            label = "setProgress"
+        )
         LinearProgressIndicator(
-            progress = { if (totalSets > 0) doneSets / totalSets.toFloat() else 0f },
+            progress = { setProgress },
             modifier = Modifier
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(50)),
         )
         Spacer(Modifier.height(12.dp))
-        DemoMedia(
-            video = exercise?.video,
-            anim = exercise?.anim ?: "",
-            reduceMotion = vm.settings.reduceMotion,
-            contentDescription = "Demonstration of ${exercise?.name ?: "exercise"}",
-            modifier = Modifier
-                .fillMaxWidth()
-                .aspectRatio(1.4f)
-                .clip(RoundedCornerShape(24.dp))
-        )
-        Spacer(Modifier.height(14.dp))
-        Text(exercise?.name ?: item.exerciseId, style = MaterialTheme.typography.headlineSmall)
+        AnimatedContent(
+            targetState = exIndex,
+            transitionSpec = {
+                (slideInHorizontally(tween(300)) { it / 3 } + fadeIn(tween(300)))
+                    .togetherWith(slideOutHorizontally(tween(300)) { -it / 3 } + fadeOut(tween(300)))
+            },
+            label = "exerciseSlide"
+        ) { idx ->
+            val ex = vm.exercise(items[idx].exerciseId)
+            key(idx) {
+                DemoMedia(
+                    video = ex?.video,
+                    anim = ex?.anim ?: "",
+                    reduceMotion = vm.settings.reduceMotion,
+                    contentDescription = "Demonstration of ${ex?.name ?: "exercise"}",
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .aspectRatio(1.4f)
+                        .clip(RoundedCornerShape(24.dp))
+                )
+            }
+        }
+        Spacer(Modifier.height(16.dp))
+        Text(exercise?.name ?: item.exerciseId, style = MaterialTheme.typography.headlineMedium)
         Spacer(Modifier.height(4.dp))
         Text(
             "Set $setNum of ${item.sets} · ${item.targetText()}",
@@ -238,7 +285,7 @@ fun PlayerScreen(vm: AppViewModel, title: String, items: List<WorkoutItem>, plan
                     modifier = Modifier.padding(20.dp),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Text("Rest", style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.onPrimaryContainer)
+                    Text("Catch your breath", style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.onPrimaryContainer)
                     Spacer(Modifier.height(10.dp))
                     Box(contentAlignment = Alignment.Center) {
                         CircularProgressIndicator(
@@ -251,7 +298,7 @@ fun PlayerScreen(vm: AppViewModel, title: String, items: List<WorkoutItem>, plan
                     Spacer(Modifier.height(10.dp))
                     val nextName = if (setNum < item.sets) exercise?.name else vm.exercise(items[exIndex + 1].exerciseId)?.name
                     Text(
-                        "Next: ${nextName ?: ""}",
+                        "Up next: ${nextName ?: ""}",
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onPrimaryContainer
                     )
@@ -295,20 +342,28 @@ fun PlayerScreen(vm: AppViewModel, title: String, items: List<WorkoutItem>, plan
                         )
                         Spacer(Modifier.height(8.dp))
                         Text(
-                            "Move slowly and keep control. Tap the button when the set is done.",
+                            listOf(
+                                "Nice and steady. You have got this.",
+                                "Slow beats sloppy. Keep control.",
+                                "One rep at a time.",
+                                "This is the work that counts."
+                            )[(exIndex + setNum) % 4],
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                     }
                     Spacer(Modifier.height(14.dp))
-                    Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                        OutlinedButton(onClick = { running = !running }) {
-                            Text(if (running) "Pause" else "Resume")
-                        }
-                        EmberButton(
-                            if (item.timed) "Finish set" else "Set done",
-                            onClick = { advance() }
-                        )
+                    EmberButton(
+                        if (item.timed) "Finish set" else "Set done",
+                        onClick = { advance() },
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                    Spacer(Modifier.height(6.dp))
+                    OutlinedButton(
+                        onClick = { running = !running },
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Text(if (running) "Pause" else "Resume")
                     }
                 }
             }

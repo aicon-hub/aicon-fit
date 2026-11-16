@@ -2,7 +2,11 @@ package com.aiconhub.fit.ui.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
+import androidx.compose.foundation.LocalIndication
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -31,9 +35,12 @@ import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.painterResource
@@ -41,6 +48,7 @@ import androidx.compose.ui.unit.dp
 import com.aiconhub.fit.AppViewModel
 import com.aiconhub.fit.R
 import com.aiconhub.fit.Screen
+import com.aiconhub.fit.ui.bounceClick
 import com.aiconhub.fit.ui.emberBrush
 
 @Composable
@@ -206,7 +214,7 @@ fun RootScaffold(
     }
 }
 
-/** A bold gradient button used for the main action on a screen. */
+/** A bold gradient button used for the main action on a screen. Springs down on press. */
 @Composable
 fun EmberButton(
     text: String,
@@ -214,14 +222,16 @@ fun EmberButton(
     modifier: Modifier = Modifier,
     enabled: Boolean = true
 ) {
+    val interactionSource = remember { MutableInteractionSource() }
     Box(
         modifier = modifier
+            .bounceClick(interactionSource)
             .clip(RoundedCornerShape(18.dp))
             .background(
                 if (enabled) emberBrush()
                 else SolidColor(MaterialTheme.colorScheme.surfaceVariant)
             )
-            .clickable(enabled = enabled, onClick = onClick)
+            .clickable(enabled = enabled, interactionSource = interactionSource, indication = LocalIndication.current, onClick = onClick)
             .padding(vertical = 16.dp),
         contentAlignment = Alignment.Center
     ) {

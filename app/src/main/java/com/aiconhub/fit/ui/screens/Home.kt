@@ -25,9 +25,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.aiconhub.fit.AppViewModel
@@ -38,6 +40,7 @@ import com.aiconhub.fit.data.Quotes
 import com.aiconhub.fit.ui.AnimImage
 import com.aiconhub.fit.ui.OrangeDeep
 import com.aiconhub.fit.ui.QuoteCard
+import com.aiconhub.fit.ui.rememberEntranceProgress
 import com.aiconhub.fit.ui.WeekChart
 import com.aiconhub.fit.ui.emberBrush
 import java.time.Instant
@@ -79,10 +82,23 @@ fun HomeScreen(vm: AppViewModel) {
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
+                Spacer(Modifier.height(2.dp))
+                Text(
+                    listOf(
+                        "Small steps, every day.",
+                        "Your future self is watching.",
+                        "No gym. No excuses. Just you.",
+                        "Twenty minutes is all it takes."
+                    )[(vm.todayEpochDay() % 4).toInt()],
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.primary
+                )
                 Spacer(Modifier.height(18.dp))
             }
 
             item {
+                val heroIn = rememberEntranceProgress(0)
+                Column(Modifier.graphicsLayer { alpha = heroIn; translationY = (1f - heroIn) * 36f }) {
                 TodayHero(vm)
                 Spacer(Modifier.height(14.dp))
                 Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
@@ -118,9 +134,12 @@ fun HomeScreen(vm: AppViewModel) {
                     }
                 }
                 Spacer(Modifier.height(20.dp))
+                }
             }
 
             item {
+                val picksIn = rememberEntranceProgress(120)
+                Column(Modifier.graphicsLayer { alpha = picksIn; translationY = (1f - picksIn) * 36f }) {
                 SectionTitle("Picks for you")
                 if (!vm.profile.quizDone) {
                     Card(
@@ -176,9 +195,12 @@ fun HomeScreen(vm: AppViewModel) {
                 Spacer(Modifier.height(14.dp))
                 QuoteCard(Quotes.forDay(vm.todayEpochDay()))
                 Spacer(Modifier.height(20.dp))
+                }
             }
 
             item {
+                val recentIn = rememberEntranceProgress(240)
+                Column(Modifier.graphicsLayer { alpha = recentIn; translationY = (1f - recentIn) * 36f }) {
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically
@@ -189,10 +211,11 @@ fun HomeScreen(vm: AppViewModel) {
                 }
                 if (vm.history.isEmpty()) {
                     Text(
-                        "Nothing yet. Finish a workout and it shows up here.",
+                        "Nothing yet. One workout and this page starts telling your story.",
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
+                }
                 }
             }
 

@@ -1,7 +1,9 @@
 package com.aiconhub.fit.ui.screens
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -34,10 +36,15 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.aiconhub.fit.AppViewModel
 import com.aiconhub.fit.Screen
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.ui.graphics.graphicsLayer
 import com.aiconhub.fit.ui.AnimImage
+import com.aiconhub.fit.ui.bounceClick
+import com.aiconhub.fit.ui.rememberEntranceProgress
 
 @Composable
 fun LibraryScreen(vm: AppViewModel) {
@@ -101,26 +108,48 @@ fun LibraryScreen(vm: AppViewModel) {
             LazyColumn {
                 items(filtered.size) { i ->
                     val e = filtered[i]
+                    val enter = rememberEntranceProgress((i * 40).coerceAtMost(400))
+                    val press = remember { MutableInteractionSource() }
                     Card(
                         shape = RoundedCornerShape(18.dp),
                         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(vertical = 4.dp)
-                            .clickable { vm.push(Screen.Detail(e.id)) }
+                            .graphicsLayer { alpha = enter; translationY = (1f - enter) * 30f }
+                            .bounceClick(press, pressedScale = 0.97f)
+                            .clickable(interactionSource = press, indication = androidx.compose.foundation.LocalIndication.current) { vm.push(Screen.Detail(e.id)) }
                     ) {
                         Row(
                             modifier = Modifier.padding(10.dp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            AnimImage(
-                                assetPath = e.anim,
-                                reduceMotion = true,
-                                contentDescription = null,
-                                modifier = Modifier
+                            Box(
+                                Modifier
                                     .size(68.dp)
                                     .clip(RoundedCornerShape(12.dp))
-                            )
+                            ) {
+                                AnimImage(
+                                    assetPath = e.anim,
+                                    reduceMotion = true,
+                                    contentDescription = null,
+                                    modifier = Modifier.size(68.dp),
+                                    crop = true
+                                )
+                                // Uniform ember wash so gym backdrops read as illustrations, not ads
+                                Box(
+                                    Modifier
+                                        .size(68.dp)
+                                        .background(
+                                            androidx.compose.ui.graphics.Brush.verticalGradient(
+                                                listOf(
+                                                    Color(0x330F0C09),
+                                                    Color(0x590F0C09)
+                                                )
+                                            )
+                                        )
+                                )
+                            }
                             Spacer(Modifier.width(12.dp))
                             Column(Modifier.weight(1f)) {
                                 Text(e.name, style = MaterialTheme.typography.titleSmall)

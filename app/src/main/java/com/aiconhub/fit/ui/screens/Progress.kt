@@ -1,5 +1,8 @@
 package com.aiconhub.fit.ui.screens
 
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -20,9 +23,12 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.aiconhub.fit.AppViewModel
@@ -61,8 +67,12 @@ fun ProgressScreen(vm: AppViewModel) {
                         Column(Modifier.weight(1f)) {
                             Text("Current streak", style = MaterialTheme.typography.labelLarge, color = Color.White.copy(alpha = 0.85f))
                             Spacer(Modifier.height(2.dp))
+                            val streakShown = remember { Animatable(0f) }
+                            LaunchedEffect(Unit) {
+                                streakShown.animateTo(vm.streakDays().toFloat(), tween(700))
+                            }
                             Text(
-                                "${vm.streakDays()}",
+                                "${streakShown.value.toInt()}",
                                 style = MaterialTheme.typography.displayMedium,
                                 color = Color.White
                             )
@@ -84,9 +94,15 @@ fun ProgressScreen(vm: AppViewModel) {
                                 val trained = vm.history.map { it.epochDay }.toSet()
                                 repeat(7) { i ->
                                     val day = today - 6 + i
+                                    val dotScale = remember { Animatable(0f) }
+                                    LaunchedEffect(Unit) {
+                                        kotlinx.coroutines.delay(80L * i)
+                                        dotScale.animateTo(1f, spring(dampingRatio = 0.5f, stiffness = 400f))
+                                    }
                                     Box(
                                         Modifier
                                             .size(10.dp)
+                                            .scale(dotScale.value)
                                             .clip(CircleShape)
                                             .background(
                                                 if (day in trained) Color.White
