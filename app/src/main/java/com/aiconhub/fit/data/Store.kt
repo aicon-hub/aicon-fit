@@ -19,6 +19,7 @@ data class Profile(
 )
 
 data class AppSettings(
+    var theme: String = "dark",
     var reduceMotion: Boolean = false,
     var highContrast: Boolean = false,
     var haptics: Boolean = true,
@@ -66,6 +67,7 @@ class Store(private val context: Context) {
             )
             val s = o.optJSONObject("settings")
             if (s != null) settings = AppSettings(
+                theme = s.optString("theme", "dark"),
                 reduceMotion = s.optBoolean("reduceMotion", false),
                 highContrast = s.optBoolean("highContrast", false),
                 haptics = s.optBoolean("haptics", true),
@@ -122,6 +124,7 @@ class Store(private val context: Context) {
                 .put("limitations", profile.limitations)
                 .put("quizDone", profile.quizDone))
             o.put("settings", JSONObject()
+                .put("theme", settings.theme)
                 .put("reduceMotion", settings.reduceMotion)
                 .put("highContrast", settings.highContrast)
                 .put("haptics", settings.haptics)

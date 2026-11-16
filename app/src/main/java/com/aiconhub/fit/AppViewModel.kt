@@ -25,7 +25,7 @@ sealed interface Screen {
     data class Detail(val exerciseId: String) : Screen
     data object Plans : Screen
     data class PlanDetail(val planId: String) : Screen
-    data object Custom : Screen
+    data object Progress : Screen
     data class CustomEdit(val workoutId: String?) : Screen
     data object Quiz : Screen
     data object Settings : Screen
@@ -146,4 +146,21 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
     fun streakDays(): Int = Stats.streak(history.map { it.epochDay }.toSet(), todayEpochDay())
 
     fun totalMinutes(): Int = history.sumOf { it.minutes }
+
+    fun minutesThisWeek(): Int {
+        val today = todayEpochDay()
+        return history.filter { it.epochDay > today - 7 }.sumOf { it.minutes }
+    }
+
+    fun daysTrainedThisWeek(): Int {
+        val today = todayEpochDay()
+        return history.filter { it.epochDay > today - 7 }.map { it.epochDay }.toSet().size
+    }
+
+    fun bmi(): Double? {
+        val h = profile.heightCm / 100.0
+        if (h <= 0 || profile.weightKg <= 0) return null
+        val v = profile.weightKg / (h * h)
+        return if (v in 5.0..100.0) v else null
+    }
 }

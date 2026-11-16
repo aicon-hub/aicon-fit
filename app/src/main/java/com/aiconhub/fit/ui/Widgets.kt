@@ -1,5 +1,7 @@
 package com.aiconhub.fit.ui
 
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -8,6 +10,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -17,6 +21,7 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -29,10 +34,11 @@ import java.time.ZoneId
 import java.time.format.TextStyle
 import java.util.Locale
 
-/** Circular progress ring showing plan completion, e.g. "2/6". */
+/** Circular progress ring showing completion, e.g. "2/6". Animates on change. */
 @Composable
 fun ProgressRing(done: Int, total: Int, sizeDp: Int, modifier: Modifier = Modifier) {
-    val progress = if (total > 0) done / total.toFloat() else 0f
+    val target = if (total > 0) done / total.toFloat() else 0f
+    val progress by animateFloatAsState(targetValue = target, animationSpec = tween(700), label = "ring")
     val color = MaterialTheme.colorScheme.primary
     val track = MaterialTheme.colorScheme.surfaceVariant
     Box(modifier.width(sizeDp.dp).height(sizeDp.dp), contentAlignment = Alignment.Center) {
@@ -49,7 +55,7 @@ fun ProgressRing(done: Int, total: Int, sizeDp: Int, modifier: Modifier = Modifi
     }
 }
 
-/** Minutes trained on each of the last 7 days as simple bars. */
+/** Minutes trained on each of the last 7 days as rounded bars; today glows. */
 @Composable
 fun WeekChart(history: List<HistoryEntry>, todayEpochDay: Long, modifier: Modifier = Modifier) {
     val days = (6 downTo 0).map { todayEpochDay - it }
@@ -60,13 +66,14 @@ fun WeekChart(history: List<HistoryEntry>, todayEpochDay: Long, modifier: Modifi
             .dayOfWeek.getDisplayName(TextStyle.NARROW, Locale.getDefault())
     }
     Row(
-        modifier = modifier.fillMaxWidth().height(96.dp),
+        modifier = modifier.fillMaxWidth().height(110.dp),
         horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.Bottom
     ) {
-        days.forEachIndexed { i, _ ->
+        days.forEachIndexed { i, d ->
             val m = minutes[i]
-            val barHeight = if (m > 0) (64f * m / max).coerceAtLeast(8f) else 3f
+            val isToday = d == todayEpochDay
+            val barHeight = if (m > 0) (72f * m / max).coerceAtLeast(10f) else 4f
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 if (m > 0) {
                     Text("$m", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.primary)
@@ -74,39 +81,61 @@ fun WeekChart(history: List<HistoryEntry>, todayEpochDay: Long, modifier: Modifi
                 }
                 Box(
                     Modifier
-                        .width(18.dp)
+                        .width(20.dp)
                         .height(barHeight.dp)
-                        .clip(RoundedCornerShape(6.dp))
-                        .background(if (m > 0) Orange else Surface2)
+                        .clip(RoundedCornerShape(topStart = 8.dp, topEnd = 8.dp, bottomStart = 4.dp, bottomEnd = 4.dp))
+                        .background(
+                            when {
+                                m > 0 && isToday -> Orange
+                                m > 0 -> OrangeDeep.copy(alpha = 0.55f)
+                                else -> MaterialTheme.colorScheme.surfaceVariant
+                            }
+                        )
                 )
-                Spacer(Modifier.height(4.dp))
-                Text(labels[i], style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                Spacer(Modifier.height(6.dp))
+                Text(
+                    labels[i],
+                    style = MaterialTheme.typography.labelSmall,
+                    color = if (isToday) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
+                )
             }
         }
     }
 }
 
-/** A motivational quote with its attribution. */
+/** A motivational quote with its attribution, styled with an ember accent bar. */
 @Composable
 fun QuoteCard(quote: Quote, modifier: Modifier = Modifier) {
     Card(
+        shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
         modifier = modifier.fillMaxWidth()
     ) {
-        Column(Modifier.fillMaxWidth()) {
-            Text(
-                "\"" + quote.text + "\"",
-                style = MaterialTheme.typography.bodyMedium,
-                fontStyle = FontStyle.Italic,
-                color = MaterialTheme.colorScheme.onSurface,
-                modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp)
+        Row(Modifier.fillMaxWidth().height(IntrinsicSize.Min)) {
+            Box(
+                Modifier
+                    .width(4.dp)
+                    .fillMaxHeight()
+                    .background(emberBrush())
             )
-            Text(
-                quote.author,
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.primary,
-                modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 6.dp, bottom = 16.dp)
-            )
+            Column(
+                Modifier
+                    .fillMaxWidth()
+                    .padding(start = 18.dp, end = 18.dp, top = 18.dp, bottom = 16.dp)
+            ) {
+                Text(
+                    "\u201C" + quote.text + "\u201D",
+                    style = MaterialTheme.typography.bodyLarge,
+                    fontStyle = FontStyle.Italic,
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+                Spacer(Modifier.height(8.dp))
+                Text(
+                    quote.author,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.primary
+                )
+            }
         }
     }
 }

@@ -25,7 +25,6 @@ import androidx.compose.material3.SegmentedButton
 import androidx.compose.material3.SegmentedButtonDefaults
 import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -38,6 +37,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.aiconhub.fit.AppViewModel
+import com.aiconhub.fit.util.Units
 import kotlinx.coroutines.launch
 
 @Composable
@@ -62,17 +62,20 @@ fun OnboardingScreen(vm: AppViewModel) {
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center
                 ) {
-                    BrandMark(120, "AiCoN logo")
-                    Spacer(Modifier.height(24.dp))
-                    Text("Welcome to AiCoN Fit", style = MaterialTheme.typography.headlineSmall)
+                    BrandMark(120, "AiCoN Fit logo")
+                    Spacer(Modifier.height(28.dp))
+                    Text("Welcome to AiCoN Fit", style = MaterialTheme.typography.headlineMedium)
                     Spacer(Modifier.height(12.dp))
                     Text(
-                        "No-equipment workouts with animated demos that show you exactly what to do.",
+                        "No-equipment workouts with demos that show you exactly what to do.",
                         style = MaterialTheme.typography.bodyLarge,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                     Spacer(Modifier.height(20.dp))
-                    Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)) {
+                    Card(
+                        shape = RoundedCornerShape(20.dp),
+                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
+                    ) {
                         Text(
                             "Private by default. Everything you enter stays on this phone. No accounts, no ads, no trackers.",
                             style = MaterialTheme.typography.bodyMedium,
@@ -100,6 +103,7 @@ fun OnboardingScreen(vm: AppViewModel) {
                         onValueChange = { name = it },
                         label = { Text("Name (optional)") },
                         singleLine = true,
+                        shape = RoundedCornerShape(16.dp),
                         modifier = Modifier.fillMaxWidth()
                     )
                     Spacer(Modifier.height(12.dp))
@@ -121,6 +125,7 @@ fun OnboardingScreen(vm: AppViewModel) {
                         onValueChange = { heightText = it },
                         label = { Text(if (units == "metric") "Height (cm)" else "Height (inches)") },
                         singleLine = true,
+                        shape = RoundedCornerShape(16.dp),
                         modifier = Modifier.fillMaxWidth()
                     )
                     Spacer(Modifier.height(12.dp))
@@ -129,6 +134,7 @@ fun OnboardingScreen(vm: AppViewModel) {
                         onValueChange = { weightText = it },
                         label = { Text(if (units == "metric") "Weight (kg)" else "Weight (lb)") },
                         singleLine = true,
+                        shape = RoundedCornerShape(16.dp),
                         modifier = Modifier.fillMaxWidth()
                     )
                 }
@@ -208,43 +214,28 @@ fun OnboardingScreen(vm: AppViewModel) {
                     vm.finishOnboarding()
                 }) { Text("Skip") }
                 Spacer(Modifier.weight(1f))
-                Button(onClick = { scope.launch { pager.animateScrollToPage(pager.currentPage + 1) } }) {
-                    Text("Next")
-                }
+                EmberButton(
+                    "Next",
+                    onClick = { scope.launch { pager.animateScrollToPage(pager.currentPage + 1) } }
+                )
             } else {
                 Spacer(Modifier.weight(1f))
-                Button(
-                    shape = RoundedCornerShape(12.dp),
+                EmberButton(
+                    "Start",
                     onClick = {
                         vm.profile = vm.profile.copy(
                             name = name.trim(),
                             units = units,
-                            heightCm = com.aiconhub.fit.util.Units.parseHeight(heightText, units) ?: vm.profile.heightCm,
-                            weightKg = com.aiconhub.fit.util.Units.parseWeight(weightText, units) ?: vm.profile.weightKg
+                            heightCm = Units.parseHeight(heightText, units) ?: vm.profile.heightCm,
+                            weightKg = Units.parseWeight(weightText, units) ?: vm.profile.weightKg,
+                            quizDone = true
                         )
-                        vm.profile = vm.profile.copy(quizDone = true)
                         vm.persistProfile()
                         vm.persistSettings()
                         vm.finishOnboarding()
                     }
-                ) { Text("Start") }
+                )
             }
         }
-    }
-}
-
-@Composable
-fun SettingSwitchRow(title: String, subtitle: String, checked: Boolean, onChange: (Boolean) -> Unit) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = 8.dp),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Column(modifier = Modifier.weight(1f)) {
-            Text(title, style = MaterialTheme.typography.titleSmall, color = MaterialTheme.colorScheme.onBackground)
-            Text(subtitle, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-        }
-        Switch(checked = checked, onCheckedChange = onChange)
     }
 }

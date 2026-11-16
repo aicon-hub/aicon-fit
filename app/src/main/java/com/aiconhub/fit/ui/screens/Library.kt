@@ -15,11 +15,16 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.FilterChip
+import androidx.compose.material3.FilterChipDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -38,10 +43,14 @@ import com.aiconhub.fit.ui.AnimImage
 fun LibraryScreen(vm: AppViewModel) {
     var query by remember { mutableStateOf("") }
     var group by remember { mutableStateOf("All") }
-    val groups = listOf("All", "Chest", "Back", "Shoulders", "Arms", "Legs", "Core", "Glutes")
+    val groups = listOf("All", "Chest", "Back", "Shoulders", "Arms", "Legs", "Core", "Glutes", "Cardio")
     val filtered = vm.exercises.filter { e ->
-        (group == "All" || e.group == group) &&
-            (query.isBlank() || e.name.contains(query, ignoreCase = true))
+        val groupOk = when (group) {
+            "All" -> true
+            "Cardio" -> e.category == "plyometrics"
+            else -> e.group == group
+        }
+        groupOk && (query.isBlank() || e.name.contains(query, ignoreCase = true))
     }
     RootScaffold(vm, "library") { mod ->
         Column(
@@ -52,29 +61,48 @@ fun LibraryScreen(vm: AppViewModel) {
         ) {
             Spacer(Modifier.height(12.dp))
             BrandHeader("Exercises")
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(14.dp))
             OutlinedTextField(
                 value = query,
                 onValueChange = { query = it },
-                label = { Text("Search") },
+                placeholder = { Text("Search ${vm.exercises.size} moves") },
+                leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
                 singleLine = true,
+                shape = RoundedCornerShape(18.dp),
+                colors = OutlinedTextFieldDefaults.colors(
+                    unfocusedContainerColor = MaterialTheme.colorScheme.surface,
+                    focusedContainerColor = MaterialTheme.colorScheme.surface,
+                    unfocusedBorderColor = MaterialTheme.colorScheme.surface,
+                    focusedBorderColor = MaterialTheme.colorScheme.primary
+                ),
                 modifier = Modifier.fillMaxWidth()
             )
-            Spacer(Modifier.height(8.dp))
+            Spacer(Modifier.height(10.dp))
             LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 items(groups.size) { i ->
                     FilterChip(
                         selected = group == groups[i],
                         onClick = { group = groups[i] },
-                        label = { Text(groups[i]) }
+                        label = { Text(groups[i]) },
+                        colors = FilterChipDefaults.filterChipColors(
+                            selectedContainerColor = MaterialTheme.colorScheme.primary,
+                            selectedLabelColor = MaterialTheme.colorScheme.onPrimary
+                        )
                     )
                 }
             }
-            Spacer(Modifier.height(8.dp))
+            Spacer(Modifier.height(6.dp))
+            Text(
+                "${filtered.size} move" + (if (filtered.size == 1) "" else "s") + ", all no-equipment",
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            Spacer(Modifier.height(6.dp))
             LazyColumn {
                 items(filtered.size) { i ->
                     val e = filtered[i]
                     Card(
+                        shape = RoundedCornerShape(18.dp),
                         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
                         modifier = Modifier
                             .fillMaxWidth()
@@ -90,23 +118,19 @@ fun LibraryScreen(vm: AppViewModel) {
                                 reduceMotion = true,
                                 contentDescription = null,
                                 modifier = Modifier
-                                    .size(72.dp)
-                                    .clip(RoundedCornerShape(10.dp))
+                                    .size(68.dp)
+                                    .clip(RoundedCornerShape(12.dp))
                             )
                             Spacer(Modifier.width(12.dp))
-                            Column {
+                            Column(Modifier.weight(1f)) {
                                 Text(e.name, style = MaterialTheme.typography.titleSmall)
                                 Text(
                                     e.primaryMuscles.joinToString(", ").ifBlank { e.group },
                                     style = MaterialTheme.typography.bodySmall,
                                     color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
-                                Text(
-                                    e.level.replaceFirstChar { it.uppercase() } + " - " + if (e.equipment == "body only") "No equipment" else e.equipment,
-                                    style = MaterialTheme.typography.bodySmall,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                                )
                             }
+                            MetaChip(e.level.replaceFirstChar { it.uppercase() })
                         }
                     }
                 }

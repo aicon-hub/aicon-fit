@@ -35,7 +35,7 @@ object PlanRepo {
     private fun item(id: String, sets: Int = 3, reps: Int = 0, seconds: Int = 0, rest: Int = 45) =
         WorkoutItem(id, sets, reps, seconds, rest)
 
-    val plans: List<Plan> = listOf(
+    private val corePlans: List<Plan> = listOf(
         Plan(
             id = "starter_full_body",
             name = "Starter Full Body",
@@ -222,6 +222,114 @@ object PlanRepo {
             )
         )
     )
+
+    private val extraPlans: List<Plan> = listOf(
+        Plan(
+            id = "morning_wake_up",
+            name = "Morning Wake-Up",
+            description = "Gentle mobility and stretching to start the day loose. Three mornings a week, about 10 minutes. No equipment.",
+            level = "Beginner",
+            weeks = 2,
+            daysPerWeek = 3,
+            equipment = "None",
+            days = listOf(
+                PlanDay("Day 1: Wake up A", listOf(
+                    item("90_90_Hamstring", 2, seconds = 40, rest = 30),
+                    item("Inchworm", 2, reps = 6, rest = 30),
+                    item("Superman", 3, reps = 10),
+                    item("Toe_Touchers", 2, seconds = 40, rest = 30)
+                )),
+                PlanDay("Day 2: Wake up B", listOf(
+                    item("Groiners", 2, seconds = 30, rest = 30),
+                    item("Rear_Leg_Raises", 3, reps = 12),
+                    item("Lower_Back_Curl", 3, reps = 12),
+                    item("Scissor_Kick", 2, seconds = 30, rest = 30)
+                )),
+                PlanDay("Day 3: Wake up C", listOf(
+                    item("90_90_Hamstring", 2, seconds = 40, rest = 30),
+                    item("Inchworm", 2, reps = 8, rest = 30),
+                    item("Side_Leg_Raises", 3, reps = 12),
+                    item("Superman", 3, reps = 12),
+                    item("Toe_Touchers", 2, seconds = 40, rest = 30)
+                )),
+                PlanDay("Day 4: Wake up A, round 2", listOf(
+                    item("90_90_Hamstring", 3, seconds = 45, rest = 30),
+                    item("Inchworm", 3, reps = 8, rest = 30),
+                    item("Superman", 3, reps = 12),
+                    item("Toe_Touchers", 3, seconds = 45, rest = 30)
+                )),
+                PlanDay("Day 5: Wake up B, round 2", listOf(
+                    item("Groiners", 3, seconds = 35, rest = 30),
+                    item("Rear_Leg_Raises", 3, reps = 14),
+                    item("Lower_Back_Curl", 3, reps = 14),
+                    item("Scissor_Kick", 3, seconds = 35, rest = 30)
+                )),
+                PlanDay("Day 6: Wake up C, round 2", listOf(
+                    item("90_90_Hamstring", 3, seconds = 45, rest = 30),
+                    item("Inchworm", 3, reps = 10, rest = 30),
+                    item("Side_Leg_Raises", 3, reps = 14),
+                    item("Superman", 3, reps = 14),
+                    item("Toe_Touchers", 3, seconds = 45, rest = 30)
+                ))
+            )
+        ),
+        Plan(
+            id = "quick_7",
+            name = "Quick 7 Express",
+            description = "A 7 minute daily circuit for busy days. Every day for one week, short timed sets. No equipment.",
+            level = "Beginner",
+            weeks = 1,
+            daysPerWeek = 7,
+            equipment = "None",
+            days = listOf(
+                PlanDay("Day 1: Circuit A", listOf(
+                    item("Mountain_Climbers", 2, seconds = 30, rest = 20),
+                    item("Bodyweight_Squat", 2, reps = 12, rest = 20),
+                    item("Pushups", 2, reps = 8, rest = 20),
+                    item("Plank", 2, seconds = 30, rest = 20)
+                )),
+                PlanDay("Day 2: Circuit B", listOf(
+                    item("Star_Jump", 2, seconds = 30, rest = 20),
+                    item("Crunches", 2, reps = 12, rest = 20),
+                    item("Bodyweight_Walking_Lunge", 2, reps = 10, rest = 20),
+                    item("Side_Bridge", 2, seconds = 20, rest = 20)
+                )),
+                PlanDay("Day 3: Circuit C", listOf(
+                    item("Double_Leg_Butt_Kick", 2, seconds = 30, rest = 20),
+                    item("Incline_Push-Up", 2, reps = 10, rest = 20),
+                    item("Reverse_Crunch", 2, reps = 12, rest = 20),
+                    item("Plank", 2, seconds = 30, rest = 20)
+                )),
+                PlanDay("Day 4: Circuit A, round 2", listOf(
+                    item("Mountain_Climbers", 3, seconds = 30, rest = 20),
+                    item("Bodyweight_Squat", 3, reps = 12, rest = 20),
+                    item("Pushups", 3, reps = 8, rest = 20),
+                    item("Plank", 2, seconds = 35, rest = 20)
+                )),
+                PlanDay("Day 5: Circuit B, round 2", listOf(
+                    item("Star_Jump", 3, seconds = 30, rest = 20),
+                    item("Crunches", 3, reps = 12, rest = 20),
+                    item("Bodyweight_Walking_Lunge", 3, reps = 10, rest = 20),
+                    item("Side_Bridge", 2, seconds = 25, rest = 20)
+                )),
+                PlanDay("Day 6: Circuit C, round 2", listOf(
+                    item("Double_Leg_Butt_Kick", 3, seconds = 30, rest = 20),
+                    item("Incline_Push-Up", 3, reps = 10, rest = 20),
+                    item("Reverse_Crunch", 3, reps = 12, rest = 20),
+                    item("Plank", 2, seconds = 40, rest = 20)
+                )),
+                PlanDay("Day 7: Finisher mix", listOf(
+                    item("Star_Jump", 2, seconds = 30, rest = 20),
+                    item("Pushups", 2, reps = 10, rest = 20),
+                    item("Mountain_Climbers", 2, seconds = 30, rest = 20),
+                    item("Bodyweight_Squat", 2, reps = 14, rest = 20),
+                    item("Plank", 2, seconds = 45, rest = 20)
+                ))
+            )
+        )
+    )
+
+    val plans: List<Plan> get() = corePlans + extraPlans
 
     fun byId(id: String): Plan? = plans.firstOrNull { it.id == id }
 }

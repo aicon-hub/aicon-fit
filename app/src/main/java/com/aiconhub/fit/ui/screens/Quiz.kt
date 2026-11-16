@@ -11,8 +11,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Button
 import androidx.compose.material3.FilterChip
+import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SegmentedButton
 import androidx.compose.material3.SegmentedButtonDefaults
@@ -31,6 +31,39 @@ private val limitations = listOf(
     Triple("easy_wrists", "Easy on wrists", "Avoid push-ups, planks and crawls.")
 )
 
+@Composable
+fun QuizScreen(vm: AppViewModel, onDone: () -> Unit) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .systemBarsPadding()
+            .verticalScroll(rememberScrollState())
+            .padding(horizontal = 20.dp)
+    ) {
+        Spacer(Modifier.height(12.dp))
+        SubHeader("Your answers", onBack = onDone)
+        Spacer(Modifier.height(6.dp))
+        Text(
+            "These tune your plan and picks. Everything stays on this phone.",
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+        Spacer(Modifier.height(10.dp))
+        QuizForm(vm)
+        Spacer(Modifier.height(20.dp))
+        EmberButton(
+            "Save my answers",
+            onClick = {
+                vm.profile = vm.profile.copy(quizDone = true)
+                vm.persistProfile()
+                onDone()
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
+        Spacer(Modifier.height(32.dp))
+    }
+}
+
 /** The questionnaire form, shared by onboarding and the standalone quiz screen. */
 @Composable
 fun QuizForm(vm: AppViewModel) {
@@ -42,6 +75,10 @@ fun QuizForm(vm: AppViewModel) {
                     selected = vm.profile.goal == g,
                     onClick = { vm.profile = vm.profile.copy(goal = g) },
                     label = { Text(g) },
+                    colors = FilterChipDefaults.filterChipColors(
+                        selectedContainerColor = MaterialTheme.colorScheme.primary,
+                        selectedLabelColor = MaterialTheme.colorScheme.onPrimary
+                    ),
                     modifier = Modifier.weight(1f)
                 )
             }
@@ -104,46 +141,17 @@ fun QuizForm(vm: AppViewModel) {
                 vm.profile = vm.profile.copy(limitations = set.joinToString(","))
             },
             label = { Text(label) },
+            colors = FilterChipDefaults.filterChipColors(
+                selectedContainerColor = MaterialTheme.colorScheme.primary,
+                selectedLabelColor = MaterialTheme.colorScheme.onPrimary
+            ),
             modifier = Modifier.fillMaxWidth()
         )
         Text(
             hint,
-            style = MaterialTheme.typography.labelSmall,
+            style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.padding(start = 8.dp, bottom = 6.dp)
+            modifier = Modifier.padding(start = 4.dp, bottom = 4.dp)
         )
-    }
-}
-
-/** Standalone questionnaire, reachable any time from Settings or Home. */
-@Composable
-fun QuizScreen(vm: AppViewModel, onDone: () -> Unit) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .systemBarsPadding()
-            .verticalScroll(rememberScrollState())
-            .padding(horizontal = 20.dp)
-    ) {
-        Spacer(Modifier.height(12.dp))
-        BrandHeader("Your goals")
-        Spacer(Modifier.height(6.dp))
-        Text(
-            "Answer a few questions and AiCoN Fit curates your plan and exercise picks. Everything stays on this phone.",
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
-        Spacer(Modifier.height(8.dp))
-        QuizForm(vm)
-        Spacer(Modifier.height(16.dp))
-        Button(
-            onClick = {
-                vm.profile = vm.profile.copy(quizDone = true)
-                vm.persistProfile()
-                onDone()
-            },
-            modifier = Modifier.fillMaxWidth()
-        ) { Text("Save and curate my plan") }
-        Spacer(Modifier.height(24.dp))
     }
 }

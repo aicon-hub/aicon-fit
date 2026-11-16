@@ -14,7 +14,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            FitTheme(highContrast = vm.settings.highContrast) {
+            FitTheme(theme = vm.settings.theme, highContrast = vm.settings.highContrast) {
                 AppRoot(vm)
             }
         }

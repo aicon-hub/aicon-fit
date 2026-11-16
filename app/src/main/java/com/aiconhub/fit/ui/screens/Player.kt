@@ -5,6 +5,7 @@ import android.media.AudioManager
 import android.media.ToneGenerator
 import android.view.HapticFeedbackConstants
 import android.view.WindowManager
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -21,10 +22,10 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
@@ -45,8 +46,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.unit.dp
 import com.aiconhub.fit.AppViewModel
+import com.aiconhub.fit.data.Quotes
 import com.aiconhub.fit.data.WorkoutItem
 import com.aiconhub.fit.ui.DemoMedia
+import com.aiconhub.fit.ui.QuoteCard
 import kotlinx.coroutines.delay
 
 private fun beep(enabled: Boolean, doubleBeep: Boolean = false) {
@@ -82,6 +85,8 @@ fun PlayerScreen(vm: AppViewModel, title: String, items: List<WorkoutItem>, plan
 
     val item = items[exIndex]
     val exercise = vm.exercise(item.exerciseId)
+    val totalSets = items.sumOf { it.sets }
+    val doneSets = items.take(exIndex).sumOf { it.sets } + (setNum - 1)
 
     fun buzz() {
         if (vm.settings.haptics) {
@@ -150,6 +155,7 @@ fun PlayerScreen(vm: AppViewModel, title: String, items: List<WorkoutItem>, plan
             modifier = Modifier
                 .fillMaxSize()
                 .systemBarsPadding()
+                .verticalScroll(rememberScrollState())
                 .padding(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
@@ -171,9 +177,9 @@ fun PlayerScreen(vm: AppViewModel, title: String, items: List<WorkoutItem>, plan
                 StatCard("${vm.streakDays()}", "Day streak", Modifier.weight(1f))
             }
             Spacer(Modifier.height(16.dp))
-            com.aiconhub.fit.ui.QuoteCard(com.aiconhub.fit.data.Quotes.random())
+            QuoteCard(Quotes.random())
             Spacer(Modifier.height(24.dp))
-            Button(onClick = { vm.pop() }, modifier = Modifier.fillMaxWidth()) { Text("Done") }
+            EmberButton("Done", onClick = { vm.pop() }, modifier = Modifier.fillMaxWidth())
         }
         return
     }
@@ -195,6 +201,13 @@ fun PlayerScreen(vm: AppViewModel, title: String, items: List<WorkoutItem>, plan
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
+        LinearProgressIndicator(
+            progress = { if (totalSets > 0) doneSets / totalSets.toFloat() else 0f },
+            modifier = Modifier
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(50)),
+        )
+        Spacer(Modifier.height(12.dp))
         DemoMedia(
             video = exercise?.video,
             anim = exercise?.anim ?: "",
@@ -202,14 +215,14 @@ fun PlayerScreen(vm: AppViewModel, title: String, items: List<WorkoutItem>, plan
             contentDescription = "Demonstration of ${exercise?.name ?: "exercise"}",
             modifier = Modifier
                 .fillMaxWidth()
-                .aspectRatio(1.5f)
-                .clip(RoundedCornerShape(16.dp))
+                .aspectRatio(1.4f)
+                .clip(RoundedCornerShape(24.dp))
         )
-        Spacer(Modifier.height(12.dp))
+        Spacer(Modifier.height(14.dp))
         Text(exercise?.name ?: item.exerciseId, style = MaterialTheme.typography.headlineSmall)
         Spacer(Modifier.height(4.dp))
         Text(
-            "Set $setNum of ${item.sets} - ${item.targetText()}",
+            "Set $setNum of ${item.sets} · ${item.targetText()}",
             style = MaterialTheme.typography.titleMedium,
             color = MaterialTheme.colorScheme.primary
         )
@@ -217,6 +230,7 @@ fun PlayerScreen(vm: AppViewModel, title: String, items: List<WorkoutItem>, plan
         Spacer(Modifier.height(16.dp))
         if (phase == "rest") {
             Card(
+                shape = RoundedCornerShape(24.dp),
                 colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
                 modifier = Modifier.fillMaxWidth()
             ) {
@@ -225,15 +239,16 @@ fun PlayerScreen(vm: AppViewModel, title: String, items: List<WorkoutItem>, plan
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Text("Rest", style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.onPrimaryContainer)
-                    Spacer(Modifier.height(8.dp))
+                    Spacer(Modifier.height(10.dp))
                     Box(contentAlignment = Alignment.Center) {
                         CircularProgressIndicator(
                             progress = { if (item.restSeconds > 0) restLeft / item.restSeconds.toFloat() else 0f },
-                            modifier = Modifier.size(96.dp)
+                            modifier = Modifier.size(104.dp),
+                            strokeWidth = 8.dp,
                         )
                         Text("${restLeft}s", style = MaterialTheme.typography.headlineMedium, color = MaterialTheme.colorScheme.onPrimaryContainer)
                     }
-                    Spacer(Modifier.height(8.dp))
+                    Spacer(Modifier.height(10.dp))
                     val nextName = if (setNum < item.sets) exercise?.name else vm.exercise(items[exIndex + 1].exerciseId)?.name
                     Text(
                         "Next: ${nextName ?: ""}",
@@ -250,6 +265,7 @@ fun PlayerScreen(vm: AppViewModel, title: String, items: List<WorkoutItem>, plan
             }
         } else {
             Card(
+                shape = RoundedCornerShape(24.dp),
                 colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
                 modifier = Modifier.fillMaxWidth()
             ) {
@@ -261,7 +277,8 @@ fun PlayerScreen(vm: AppViewModel, title: String, items: List<WorkoutItem>, plan
                         Box(contentAlignment = Alignment.Center) {
                             CircularProgressIndicator(
                                 progress = { if (item.seconds > 0) secondsLeft / item.seconds.toFloat() else 0f },
-                                modifier = Modifier.size(96.dp)
+                                modifier = Modifier.size(104.dp),
+                                strokeWidth = 8.dp,
                             )
                             Text("${secondsLeft}s", style = MaterialTheme.typography.headlineMedium)
                         }
@@ -283,14 +300,15 @@ fun PlayerScreen(vm: AppViewModel, title: String, items: List<WorkoutItem>, plan
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                     }
-                    Spacer(Modifier.height(12.dp))
+                    Spacer(Modifier.height(14.dp))
                     Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                         OutlinedButton(onClick = { running = !running }) {
                             Text(if (running) "Pause" else "Resume")
                         }
-                        Button(onClick = { advance() }) {
-                            Text(if (item.timed) "Finish set" else "Set done")
-                        }
+                        EmberButton(
+                            if (item.timed) "Finish set" else "Set done",
+                            onClick = { advance() }
+                        )
                     }
                 }
             }
@@ -298,7 +316,10 @@ fun PlayerScreen(vm: AppViewModel, title: String, items: List<WorkoutItem>, plan
 
         if (vm.settings.reduceMotion && exercise != null && exercise.instructions.isNotEmpty()) {
             Spacer(Modifier.height(16.dp))
-            Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)) {
+            Card(
+                shape = RoundedCornerShape(20.dp),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
+            ) {
                 Column(Modifier.padding(16.dp)) {
                     Text("Steps", style = MaterialTheme.typography.titleSmall)
                     Spacer(Modifier.height(6.dp))

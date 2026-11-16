@@ -38,7 +38,7 @@ class ScreenshotTest {
     @Test
     fun onboarding() {
         val vm = vm(fresh = true)
-        composeRule.setContent { FitTheme(highContrast = false) { AppRoot(vm) } }
+        composeRule.setContent { FitTheme(highContrast = false) { AppRoot(vm, showSplash = false) } }
         composeRule.waitForIdle()
         composeRule.onRoot().captureRoboImage("build/roborazzi/onboarding.png")
     }
@@ -46,7 +46,7 @@ class ScreenshotTest {
     @Test
     fun home() {
         val vm = vm(fresh = false)
-        composeRule.setContent { FitTheme(highContrast = false) { AppRoot(vm) } }
+        composeRule.setContent { FitTheme(highContrast = false) { AppRoot(vm, showSplash = false) } }
         composeRule.waitForIdle()
         composeRule.onRoot().captureRoboImage("build/roborazzi/home.png")
     }
@@ -55,7 +55,7 @@ class ScreenshotTest {
     fun library() {
         val vm = vm(fresh = false)
         vm.goRoot(Screen.Library)
-        composeRule.setContent { FitTheme(highContrast = false) { AppRoot(vm) } }
+        composeRule.setContent { FitTheme(highContrast = false) { AppRoot(vm, showSplash = false) } }
         composeRule.waitForIdle()
         composeRule.onRoot().captureRoboImage("build/roborazzi/library.png")
     }
@@ -64,7 +64,7 @@ class ScreenshotTest {
     fun exerciseDetail() {
         val vm = vm(fresh = false)
         vm.push(Screen.Detail("Pushups"))
-        composeRule.setContent { FitTheme(highContrast = false) { AppRoot(vm) } }
+        composeRule.setContent { FitTheme(highContrast = false) { AppRoot(vm, showSplash = false) } }
         composeRule.waitForIdle()
         composeRule.onRoot().captureRoboImage("build/roborazzi/detail.png")
     }
@@ -73,7 +73,7 @@ class ScreenshotTest {
     fun plans() {
         val vm = vm(fresh = false)
         vm.goRoot(Screen.Plans)
-        composeRule.setContent { FitTheme(highContrast = false) { AppRoot(vm) } }
+        composeRule.setContent { FitTheme(highContrast = false) { AppRoot(vm, showSplash = false) } }
         composeRule.waitForIdle()
         composeRule.onRoot().captureRoboImage("build/roborazzi/plans.png")
     }
@@ -82,7 +82,7 @@ class ScreenshotTest {
     fun planDetail() {
         val vm = vm(fresh = false)
         vm.push(Screen.PlanDetail("starter_full_body"))
-        composeRule.setContent { FitTheme(highContrast = false) { AppRoot(vm) } }
+        composeRule.setContent { FitTheme(highContrast = false) { AppRoot(vm, showSplash = false) } }
         composeRule.waitForIdle()
         composeRule.onRoot().captureRoboImage("build/roborazzi/plandetail.png")
     }
@@ -91,7 +91,7 @@ class ScreenshotTest {
     fun player() {
         val vm = vm(fresh = false)
         vm.startQuick("Full body A", com.aiconhub.fit.data.PlanRepo.byId("starter_full_body")!!.days[0].items)
-        composeRule.setContent { FitTheme(highContrast = false) { AppRoot(vm) } }
+        composeRule.setContent { FitTheme(highContrast = false) { AppRoot(vm, showSplash = false) } }
         composeRule.waitForIdle()
         composeRule.onRoot().captureRoboImage("build/roborazzi/player.png")
     }
@@ -100,7 +100,7 @@ class ScreenshotTest {
     fun playerSecondExercise() {
         val vm = vm(fresh = false)
         vm.startQuick("Full body A", com.aiconhub.fit.data.PlanRepo.byId("starter_full_body")!!.days[0].items)
-        composeRule.setContent { FitTheme(highContrast = false) { AppRoot(vm) } }
+        composeRule.setContent { FitTheme(highContrast = false) { AppRoot(vm, showSplash = false) } }
         composeRule.waitForIdle()
         // Finish all 3 sets of exercise 1, skipping each rest, land on exercise 2.
         repeat(3) {
@@ -116,7 +116,7 @@ class ScreenshotTest {
     fun quiz() {
         val vm = vm(fresh = false)
         vm.push(Screen.Quiz)
-        composeRule.setContent { FitTheme(highContrast = false) { AppRoot(vm) } }
+        composeRule.setContent { FitTheme(highContrast = false) { AppRoot(vm, showSplash = false) } }
         composeRule.waitForIdle()
         composeRule.onRoot().captureRoboImage("build/roborazzi/quiz.png")
     }
@@ -125,8 +125,17 @@ class ScreenshotTest {
     fun settings() {
         val vm = vm(fresh = false)
         vm.goRoot(Screen.Settings)
-        composeRule.setContent { FitTheme(highContrast = false) { AppRoot(vm) } }
+        composeRule.setContent { FitTheme(highContrast = false) { AppRoot(vm, showSplash = false) } }
         composeRule.waitForIdle()
         composeRule.onRoot().captureRoboImage("build/roborazzi/settings.png")
+    }
+
+    @Test
+    fun progress() {
+        val vm = vm(fresh = false)
+        vm.goRoot(Screen.Progress)
+        composeRule.setContent { FitTheme(highContrast = false) { AppRoot(vm, showSplash = false) } }
+        composeRule.waitForIdle()
+        composeRule.onRoot().captureRoboImage("build/roborazzi/progress.png")
     }
 }
