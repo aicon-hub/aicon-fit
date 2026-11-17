@@ -31,9 +31,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.platform.LocalContext
 import com.aiconhub.fit.AppViewModel
 import com.aiconhub.fit.BuildConfig
 import com.aiconhub.fit.Screen
+import com.aiconhub.fit.data.ExerciseRepo
 import com.aiconhub.fit.util.Units
 
 @Composable
@@ -199,6 +201,32 @@ fun SettingsScreen(vm: AppViewModel) {
         }
 
         Spacer(Modifier.height(14.dp))
+        SectionTitle("Demo media credits")
+        Card(
+            shape = RoundedCornerShape(20.dp),
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            val exercises = remember { ExerciseRepo.load(LocalContext.current.applicationContext) }
+            Column(Modifier.padding(16.dp)) {
+                Text(
+                    "Every exercise demo comes from Wikimedia Commons and is used under its stated licence.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+                exercises.filter { it.videoCredit != null }.forEach { e ->
+                    Spacer(Modifier.height(10.dp))
+                    Text(e.name, style = MaterialTheme.typography.labelLarge)
+                    Text(
+                        e.videoCredit!!,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            }
+        }
+
+        Spacer(Modifier.height(14.dp))
         SectionTitle("About")
         Card(
             shape = RoundedCornerShape(20.dp),
@@ -215,7 +243,7 @@ fun SettingsScreen(vm: AppViewModel) {
                 )
                 Spacer(Modifier.height(8.dp))
                 Text(
-                    "Exercise data: Free Exercise DB, public domain. Demo videos: Wikimedia Commons and other openly licensed sources, credited in the app.",
+                    "Exercise data: Free Exercise DB, public domain. Demos: Wikimedia Commons, credited above and on each exercise.",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
