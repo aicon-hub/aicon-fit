@@ -16,6 +16,10 @@ android {
         versionName = "1.0.4-test"
     }
 
+    packaging {
+        dex { useLegacyPackaging = true }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false // R8 needs more RAM than the build sandbox has; enable for final release
