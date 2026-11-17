@@ -1,52 +1,35 @@
-# Third-party media licences
+# Licenses
 
-## Exercise data and photos
-Free Exercise DB (https://github.com/yuhonas/free-exercise-db), public domain
-(Unlicense). The animated morph loops are derived from those photos.
+AiCoN Fit is free, has no ads and no trackers. All exercise demo media comes from
+Wikimedia Commons (commons.wikimedia.org) and is used under the licence stated on
+each file page. Every demo is also credited inside the app, on the exercise screen
+and in Settings under Demo media credits.
 
-## Demo videos
+## Demo media
 
-### Pushups
-"Conditioning Drill - Eight Count T Push-Up", U.S. Army Combat Fitness Test,
-public domain, via Wikimedia Commons
-(https://commons.wikimedia.org/wiki/File:Conditioning_Drill-_Eight_Count_T_Push-Up.webm).
-Trimmed to a loop.
+- Backstretch-CDC strength training for older adults.gif | Author: Centers for Disease Control and Prevention | Licence: Public domain | https://commons.wikimedia.org/wiki/File:Backstretch-CDC_strength_training_for_older_adults.gif
+- Bent-knee-hip-raise-1.png Bent-knee-hip-raise-2.png | Author: Everkinetic | Licence: CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Bent-knee-hip-raise-1.png and https://commons.wikimedia.org/wiki/File:Bent-knee-hip-raise-2.png
+- Bridge-1.png Bridge-2.png | Author: Everkinetic | Licence: CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Bridge-1.png and https://commons.wikimedia.org/wiki/File:Bridge-2.png
+- Burpees WBS.gif | Author: Wensceslao | Licence: CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Burpees_WBS.gif
+- Rocking-standing-calf-raise-1.gif Rocking-standing-calf-raise-2.gif | Author: Everkinetic | Licence: CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Rocking-standing-calf-raise-1.gif and https://commons.wikimedia.org/wiki/File:Rocking-standing-calf-raise-2.gif
+- Chest stretch-CDC strength training for older adults.gif | Author: Centers for Disease Control and Prevention | Licence: Public domain | https://commons.wikimedia.org/wiki/File:Chest_stretch-CDC_strength_training_for_older_adults.gif
+- Close-triceps-pushup-1.png Close-triceps-pushup-2.png | Author: Everkinetic | Licence: CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Close-triceps-pushup-1.png and https://commons.wikimedia.org/wiki/File:Close-triceps-pushup-2.png
+- Cross-body-crunch-1.png Cross-body-crunch-2.png | Author: Everkinetic | Licence: CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Cross-body-crunch-1.png and https://commons.wikimedia.org/wiki/File:Cross-body-crunch-2.png
+- Abdominal curl-CDC strength training for older adults.gif | Author: Centers for Disease Control and Prevention | Licence: Public domain | https://commons.wikimedia.org/wiki/File:Abdominal_curl-CDC_strength_training_for_older_adults.gif
+- Flutter-kicks-1.png Flutter-kicks-2.png | Author: Everkinetic | Licence: CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Flutter-kicks-1.png and https://commons.wikimedia.org/wiki/File:Flutter-kicks-2.png
+- Highknees wbs.gif | Author: Wensceslao | Licence: CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Highknees_wbs.gif
+- Legraises wbs.gif | Author: Wensceslao | Licence: CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Legraises_wbs.gif
+- Floor back extensions-CDC strength training for older adults.gif | Author: Centers for Disease Control and Prevention | Licence: Public domain | https://commons.wikimedia.org/wiki/File:Floor_back_extensions-CDC_strength_training_for_older_adults.gif
+- Pelvic tilt-CDC strength training for older adults.gif | Author: Centers for Disease Control and Prevention | Licence: Public domain | https://commons.wikimedia.org/wiki/File:Pelvic_tilt-CDC_strength_training_for_older_adults.gif
+- Pushups wbs.gif | Author: Wensceslao | Licence: CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Pushups_wbs.gif
+- Quad stretch-CDC strength training for older adults.gif | Author: Centers for Disease Control and Prevention | Licence: Public domain | https://commons.wikimedia.org/wiki/File:Quad_stretch-CDC_strength_training_for_older_adults.gif
+- Side-plank-1.png Side-plank-2.png | Author: Everkinetic | Licence: CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Side-plank-1.png and https://commons.wikimedia.org/wiki/File:Side-plank-2.png
+- Situps wbs.gif | Author: Wensceslao | Licence: CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Situps_wbs.gif
+- Skierjacks wbs.gif | Author: Wensceslao | Licence: CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Skierjacks_wbs.gif
+- Squats wbs.gif | Author: Wensceslao | Licence: CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Squats_wbs.gif
+- Jumping jack Animation.gif | Author: gnokii (openclipart.org)  Animation: MichaelFrey | Licence: CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Jumping_jack_Animation.gif
+- Supermans-1.png Supermans-2.png | Author: Everkinetic | Licence: CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Supermans-1.png and https://commons.wikimedia.org/wiki/File:Supermans-2.png
 
-### Star Jump
-"Jumping jacks and burpees" by Taco Fleur, CC BY-SA 4.0
-(https://creativecommons.org/licenses/by-sa/4.0/), via Wikimedia Commons
-(https://commons.wikimedia.org/wiki/File:Jumping_jacks_and_burpees.webm).
-Trimmed to a loop; the trimmed clip is distributed under the same CC BY-SA 4.0
-licence.
+## Exercise data
 
-### 3D demo animations
-Incline Push-Up, Bodyweight Squat, Plank, Side Bridge, Sit-Up, 3/4 Sit-Up,
-Cross-Body Crunch, Oblique Crunches, Reverse Crunch, Bench Dips,
-Flutter Kicks, Scissor Kick, Jackknife Sit-Up, Crunches, Side Jackknife and
-Rear Leg Raises use animations from free-exercise-db-with-videos
-(https://github.com/harshvishu/free-exercise-db-with-videos), MIT licence:
-
-MIT License
-
-Copyright (c) 2026 Arham Wani
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-## Font
-Comfortaa: SIL Open Font License 1.1.
+Exercise names, instructions and muscle data: Free Exercise DB (github.com/yuhonas/free-exercise-db), public domain.
