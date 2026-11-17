@@ -40,6 +40,8 @@ import com.aiconhub.fit.util.Units
 
 @Composable
 fun SettingsScreen(vm: AppViewModel) {
+    val appContext = LocalContext.current.applicationContext
+    val creditExercises = remember { ExerciseRepo.load(appContext).filter { it.videoCredit != null } }
     var name by remember(vm.profile.name) { mutableStateOf(vm.profile.name) }
     var heightText by remember(vm.profile.units) {
         mutableStateOf(
@@ -207,14 +209,13 @@ fun SettingsScreen(vm: AppViewModel) {
             colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
             modifier = Modifier.fillMaxWidth()
         ) {
-            val exercises = remember { ExerciseRepo.load(LocalContext.current.applicationContext) }
             Column(Modifier.padding(16.dp)) {
                 Text(
                     "Every exercise demo comes from Wikimedia Commons and is used under its stated licence.",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
-                exercises.filter { it.videoCredit != null }.forEach { e ->
+                creditExercises.forEach { e ->
                     Spacer(Modifier.height(10.dp))
                     Text(e.name, style = MaterialTheme.typography.labelLarge)
                     Text(
