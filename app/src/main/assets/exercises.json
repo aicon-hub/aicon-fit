@@ -260,11 +260,8 @@
       "Repeat for the recommended amount of repetitions."
     ],
     "category": "strength",
-    "anim": "posters/sit_up.webp",
-    "video": "sit_up",
-    "videoCredit": "3D model animation: free-exercise-db-with-videos. Repository states MIT, copyright 2026 Arham Wani. Separate video rights not independently verified.",
-    "demoKind": "model_animation",
-    "videoSource": "https://github.com/harshvishu/free-exercise-db-with-videos"
+    "anim": "webp/Sit-Up.webp",
+    "demoKind": "photo_loop"
   },
   {
     "id": "Crunches",
@@ -307,11 +304,8 @@
       "Continue alternating in this manner until all prescribed repetitions are done."
     ],
     "category": "strength",
-    "anim": "posters/twisting_crunch.webp",
-    "video": "twisting_crunch",
-    "videoCredit": "3D model animation: free-exercise-db-with-videos. Repository states MIT, copyright 2026 Arham Wani. Separate video rights not independently verified.",
-    "demoKind": "model_animation",
-    "videoSource": "https://github.com/harshvishu/free-exercise-db-with-videos"
+    "anim": "webp/Cross-Body_Crunch.webp",
+    "demoKind": "photo_loop"
   },
   {
     "id": "Reverse_Crunch",
@@ -375,11 +369,8 @@
       "Slowly go back to the starting position as you breathe in."
     ],
     "category": "strength",
-    "anim": "posters/glute_bridge.webp",
-    "video": "glute_bridge",
-    "videoCredit": "3D model animation: free-exercise-db-with-videos. Repository states MIT, copyright 2026 Arham Wani. Separate video rights not independently verified.",
-    "demoKind": "model_animation",
-    "videoSource": "https://github.com/harshvishu/free-exercise-db-with-videos"
+    "anim": "webp/Butt_Lift_Bridge.webp",
+    "demoKind": "photo_loop"
   },
   {
     "id": "Single_Leg_Glute_Bridge",
@@ -602,16 +593,16 @@
     ],
     "secondaryMuscles": [],
     "instructions": [
-      "To begin, lie down on the floor or an exercise mat with your back pressed against the floor. Your arms should be lying across your sides with the palms facing down.",
-      "Your legs should be crossed by wrapping one ankle around the other. Slowly elevate your legs up in the air until your thighs are perpendicular to the floor with a slight bend at the knees. Note: Your knees and toes should be parallel to the floor as opposed to the thighs.",
-      "Move your arms from the floor and cross them so they are resting on your chest. This is the starting position.",
-      "While keeping your lower back pressed against the floor, slowly lift your torso. Remember to exhale while perform this part of the exercise.",
-      "Slowly begin to lower your torso back down to the starting position while inhaling.",
-      "Repeat for the recommended amount of repetitions."
+      "Lie on your back and lift your feet, keeping both knees bent. Rest your fingertips lightly beside your head.",
+      "Curl your shoulders toward your knees without pulling on your neck.",
+      "Lower your shoulders slowly while keeping your legs still."
     ],
     "category": "strength",
-    "anim": "webp/Tuck_Crunch.webp",
-    "demoKind": "photo_loop"
+    "anim": "posters/sit_up.webp",
+    "demoKind": "model_animation",
+    "video": "sit_up",
+    "videoSource": "https://github.com/harshvishu/free-exercise-db-with-videos",
+    "videoCredit": "3D model animation via free-exercise-db-with-videos (repository states MIT; separate CDN video ownership not independently verified)."
   },
   {
     "id": "3_4_Sit-Up",
@@ -630,11 +621,8 @@
       "Repeat for the recommended amount of repetitions."
     ],
     "category": "strength",
-    "anim": "posters/sit_up.webp",
-    "video": "sit_up",
-    "videoCredit": "3D model animation: free-exercise-db-with-videos. Repository states MIT, copyright 2026 Arham Wani. Separate video rights not independently verified.",
-    "demoKind": "model_animation",
-    "videoSource": "https://github.com/harshvishu/free-exercise-db-with-videos"
+    "anim": "webp/3_4_Sit-Up.webp",
+    "demoKind": "photo_loop"
   },
   {
     "id": "90_90_Hamstring",
@@ -675,11 +663,8 @@
       "Continue alternating in this manner until all of the recommended repetitions for each side have been completed."
     ],
     "category": "strength",
-    "anim": "posters/bicycle_twisting_crunch.webp",
-    "video": "bicycle_twisting_crunch",
-    "videoCredit": "3D model animation: free-exercise-db-with-videos. Repository states MIT, copyright 2026 Arham Wani. Separate video rights not independently verified.",
-    "demoKind": "model_animation",
-    "videoSource": "https://github.com/harshvishu/free-exercise-db-with-videos"
+    "anim": "webp/Air_Bike.webp",
+    "demoKind": "photo_loop"
   },
   {
     "id": "All_Fours_Quad_Stretch",
@@ -718,8 +703,11 @@
       "Continue alternating sides in this manner until all prescribed repetitions are done."
     ],
     "category": "strength",
-    "anim": "webp/Alternate_Heel_Touchers.webp",
-    "demoKind": "photo_loop"
+    "anim": "posters/twisting_crunch.webp",
+    "demoKind": "model_animation",
+    "video": "twisting_crunch",
+    "videoSource": "https://github.com/harshvishu/free-exercise-db-with-videos",
+    "videoCredit": "3D model animation via free-exercise-db-with-videos (repository states MIT; separate CDN video ownership not independently verified)."
   },
   {
     "id": "Bent-Knee_Hip_Raise",
@@ -765,7 +753,7 @@
   },
   {
     "id": "Body_Tricep_Press",
-    "name": "Body Tricep Press",
+    "name": "Kneeling Triceps Press",
     "level": "beginner",
     "equipment": "body only",
     "primaryMuscles": [
@@ -773,15 +761,16 @@
     ],
     "secondaryMuscles": [],
     "instructions": [
-      "Position a bar in a rack at chest height.",
-      "Standing, take a shoulder width grip on the bar and step a yard or two back, feet together and arms extended so that you are leaning on the bar. This will be your starting position.",
-      "Begin by flexing the elbow, lowering yourself towards the bar.",
-      "Pause, and then reverse the motion by extending the elbows.",
-      "Progress from bodyweight by adding chains over your shoulders."
+      "Start on your hands and knees. Place your hands slightly ahead of your shoulders.",
+      "Keep your elbows pointing back and bend them to lower your forearms toward the floor.",
+      "Press through your palms to straighten your elbows. Keep the motion slow and stop if your elbows or wrists hurt."
     ],
     "category": "strength",
-    "anim": "webp/Body_Tricep_Press.webp",
-    "demoKind": "photo_loop"
+    "anim": "posters/kneeling_triceps_stretch.webp",
+    "demoKind": "model_animation",
+    "video": "kneeling_triceps_stretch",
+    "videoSource": "https://github.com/harshvishu/free-exercise-db-with-videos",
+    "videoCredit": "3D model animation via free-exercise-db-with-videos (repository states MIT; separate CDN video ownership not independently verified)."
   },
   {
     "id": "Bottoms_Up",
@@ -798,8 +787,11 @@
       "After a brief pause, return to the starting position."
     ],
     "category": "strength",
-    "anim": "webp/Bottoms_Up.webp",
-    "demoKind": "photo_loop"
+    "anim": "posters/jackknife.webp",
+    "demoKind": "model_animation",
+    "video": "jackknife",
+    "videoSource": "https://github.com/harshvishu/free-exercise-db-with-videos",
+    "videoCredit": "3D model animation via free-exercise-db-with-videos (repository states MIT; separate CDN video ownership not independently verified)."
   },
   {
     "id": "Butt-Ups",
@@ -818,8 +810,11 @@
       "Repeat for the recommended amount of repetitions."
     ],
     "category": "strength",
-    "anim": "webp/Butt-Ups.webp",
-    "demoKind": "photo_loop"
+    "anim": "posters/glute_bridge.webp",
+    "demoKind": "model_animation",
+    "video": "glute_bridge",
+    "videoSource": "https://github.com/harshvishu/free-exercise-db-with-videos",
+    "videoCredit": "3D model animation via free-exercise-db-with-videos (repository states MIT; separate CDN video ownership not independently verified)."
   },
   {
     "id": "Clock_Push-Up",
@@ -1002,11 +997,8 @@
       "Repeat for the recommended amount of repetitions."
     ],
     "category": "strength",
-    "anim": "posters/jack_knife_floor.webp",
-    "video": "jack_knife_floor",
-    "videoCredit": "3D model animation: free-exercise-db-with-videos. Repository states MIT, copyright 2026 Arham Wani. Separate video rights not independently verified.",
-    "demoKind": "model_animation",
-    "videoSource": "https://github.com/harshvishu/free-exercise-db-with-videos"
+    "anim": "webp/Jackknife_Sit-Up.webp",
+    "demoKind": "photo_loop"
   },
   {
     "id": "Lateral_Bound",
@@ -1036,7 +1028,7 @@
   },
   {
     "id": "Leg_Lift",
-    "name": "Leg Lift",
+    "name": "Standing Hamstring Curl",
     "level": "beginner",
     "equipment": "body only",
     "primaryMuscles": [
@@ -1046,11 +1038,9 @@
       "hamstrings"
     ],
     "instructions": [
-      "While standing up straight with both feet next to each other at around shoulder width, grab a sturdy surface such as the sides of a squat rack or the top of a chair to brace yourself and keep balance.",
-      "With or without an ankle weight, lift one leg behind you as if performing a leg curl but standing up while keeping the other leg straight. Breathe out as you perform this movement.",
-      "Slowly bring the raised leg back to the floor as you breathe in.",
-      "Repeat for the recommended amount of repetitions.",
-      "Repeat the movement with the opposite leg."
+      "Stand upright with your feet hip-width apart. Use a wall lightly for balance if needed.",
+      "Bend one knee and bring your heel toward your glute without moving your thigh forward.",
+      "Lower slowly and repeat, then switch legs. No ankle weights are needed."
     ],
     "category": "strength",
     "anim": "webp/Leg_Lift.webp",
@@ -1058,7 +1048,7 @@
   },
   {
     "id": "Leg_Pull-In",
-    "name": "Leg Pull-In",
+    "name": "Seated Leg Tuck",
     "level": "beginner",
     "equipment": "body only",
     "primaryMuscles": [
@@ -1066,14 +1056,16 @@
     ],
     "secondaryMuscles": [],
     "instructions": [
-      "Lie on an exercise mat with your legs extended and your hands either palms facing down next to you or under your glutes. Tip: My preference is with the hands next to me. This will be your starting position.",
-      "Bend your knees and pull your upper thighs into your midsection as you breathe out. Continue the motion until your knees are around chest level. Contract your abs as you execute this movement and hold for a second at the top. Tip: As you perform the motion, the lower legs (calves) should always remain parallel to the floor.",
-      "Return to the starting position as you inhale.",
-      "Repeat for the recommended amount of repetitions."
+      "Sit on the floor and lean back with your palms on the floor behind you.",
+      "Lift your feet and extend your legs, keeping your knees slightly bent.",
+      "Draw both knees toward your torso, then extend your legs again with control."
     ],
     "category": "strength",
-    "anim": "webp/Leg_Pull-In.webp",
-    "demoKind": "photo_loop"
+    "anim": "posters/jack_knife_floor.webp",
+    "demoKind": "model_animation",
+    "video": "jack_knife_floor",
+    "videoSource": "https://github.com/harshvishu/free-exercise-db-with-videos",
+    "videoCredit": "3D model animation via free-exercise-db-with-videos (repository states MIT; separate CDN video ownership not independently verified)."
   },
   {
     "id": "Lower_Back_Curl",
@@ -1173,11 +1165,8 @@
       "Continue alternating in this manner until all of the recommended repetitions for each side have been completed."
     ],
     "category": "strength",
-    "anim": "posters/twisting_crunch.webp",
-    "video": "twisting_crunch",
-    "videoCredit": "3D model animation: free-exercise-db-with-videos. Repository states MIT, copyright 2026 Arham Wani. Separate video rights not independently verified.",
-    "demoKind": "model_animation",
-    "videoSource": "https://github.com/harshvishu/free-exercise-db-with-videos"
+    "anim": "webp/Oblique_Crunches.webp",
+    "demoKind": "photo_loop"
   },
   {
     "id": "Oblique_Crunches_-_On_The_Floor",
@@ -1196,11 +1185,8 @@
       "Remember to breathe in during the eccentric (lowering) part of the exercise and to breathe out during the concentric (elevation) part of the exercise."
     ],
     "category": "strength",
-    "anim": "posters/twisting_crunch.webp",
-    "video": "twisting_crunch",
-    "videoCredit": "3D model animation: free-exercise-db-with-videos. Repository states MIT, copyright 2026 Arham Wani. Separate video rights not independently verified.",
-    "demoKind": "model_animation",
-    "videoSource": "https://github.com/harshvishu/free-exercise-db-with-videos"
+    "anim": "webp/Oblique_Crunches_-_On_The_Floor.webp",
+    "demoKind": "photo_loop"
   },
   {
     "id": "Overhead_Triceps",
@@ -1214,17 +1200,13 @@
       "lats"
     ],
     "instructions": [
-      "Kneel upright and lift one arm overhead.",
-      "Bend that elbow so your hand rests behind your upper back.",
-      "Use your other hand to apply gentle pressure to the bent elbow. Do not pull hard.",
-      "Hold briefly, release and switch arms."
+      "Sit upright on the floor with your partner behind you. Raise one arm straight up, and flex the elbow, attempting to touch your hand to your back. Your parner should hold your elbow and wrist. This will be your starting position.",
+      "Attempt to extend the arm straight into the air as your partner prevents you from doing actually doing so.",
+      "After 10-20 seconds, relax the arm and allow your partner to further stretch the tricep by applying gentle pressure to the wrist. Hold for 10-20 seconds, and then switch sides."
     ],
     "category": "stretching",
-    "anim": "posters/kneeling_triceps_stretch.webp",
-    "video": "kneeling_triceps_stretch",
-    "videoCredit": "3D model animation: free-exercise-db-with-videos. Repository states MIT, copyright 2026 Arham Wani. Separate video rights not independently verified.",
-    "demoKind": "model_animation",
-    "videoSource": "https://github.com/harshvishu/free-exercise-db-with-videos"
+    "anim": "webp/Overhead_Triceps.webp",
+    "demoKind": "photo_loop"
   },
   {
     "id": "Plyo_Push-up",
@@ -1311,11 +1293,8 @@
       "Extend one leg up and behind you. The knee and hip should both extend. Repeat for 5-10 repetitions, and then switch sides."
     ],
     "category": "stretching",
-    "anim": "posters/lying_leg_raise.webp",
-    "video": "lying_leg_raise",
-    "videoCredit": "3D model animation: free-exercise-db-with-videos. Repository states MIT, copyright 2026 Arham Wani. Separate video rights not independently verified.",
-    "demoKind": "model_animation",
-    "videoSource": "https://github.com/harshvishu/free-exercise-db-with-videos"
+    "anim": "webp/Rear_Leg_Raises.webp",
+    "demoKind": "photo_loop"
   },
   {
     "id": "Rocket_Jump",
@@ -1430,13 +1409,14 @@
       "abdominals"
     ],
     "secondaryMuscles": [],
-    "instructions": [],
+    "instructions": [
+      "Lie on your right side with your legs together and your right arm on the floor for support.",
+      "Raise your upper body and legs toward each other in a small, controlled side crunch.",
+      "Lower slowly. Finish your repetitions and switch sides."
+    ],
     "category": "strength",
-    "anim": "posters/jackknife.webp",
-    "video": "jackknife",
-    "videoCredit": "3D model animation: free-exercise-db-with-videos. Repository states MIT, copyright 2026 Arham Wani. Separate video rights not independently verified.",
-    "demoKind": "model_animation",
-    "videoSource": "https://github.com/harshvishu/free-exercise-db-with-videos"
+    "anim": "webp/Side_Jackknife.webp",
+    "demoKind": "photo_loop"
   },
   {
     "id": "Side_Leg_Raises",

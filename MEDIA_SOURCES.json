@@ -78,5 +78,62 @@
     "start_seconds": 28.4,
     "duration_seconds": 4.4,
     "changes": "Trimmed, muted, scaled"
+  },
+  "_restored_models": {
+    "Crunches": {
+      "resource": "crunch_floor",
+      "rights_status": "Repository states MIT; separate video ownership not independently verified.",
+      "visual_check": "Assignment checked against actual clip frames."
+    },
+    "Reverse_Crunch": {
+      "resource": "reverse_crunch",
+      "rights_status": "Repository states MIT; separate video ownership not independently verified.",
+      "visual_check": "Assignment checked against actual clip frames."
+    },
+    "Scissor_Kick": {
+      "resource": "lying_scissor_kick",
+      "rights_status": "Repository states MIT; separate video ownership not independently verified.",
+      "visual_check": "Assignment checked against actual clip frames."
+    },
+    "Tuck_Crunch": {
+      "resource": "sit_up",
+      "rights_status": "Repository states MIT; separate video ownership not independently verified.",
+      "visual_check": "Assignment checked against actual clip frames."
+    },
+    "Alternate_Heel_Touchers": {
+      "resource": "twisting_crunch",
+      "rights_status": "Repository states MIT; separate video ownership not independently verified.",
+      "visual_check": "Assignment checked against actual clip frames."
+    },
+    "Body_Tricep_Press": {
+      "resource": "kneeling_triceps_stretch",
+      "rights_status": "Repository states MIT; separate video ownership not independently verified.",
+      "visual_check": "Assignment checked against actual clip frames."
+    },
+    "Bottoms_Up": {
+      "resource": "jackknife",
+      "rights_status": "Repository states MIT; separate video ownership not independently verified.",
+      "visual_check": "Assignment checked against actual clip frames."
+    },
+    "Butt-Ups": {
+      "resource": "glute_bridge",
+      "rights_status": "Repository states MIT; separate video ownership not independently verified.",
+      "visual_check": "Assignment checked against actual clip frames."
+    },
+    "Leg_Pull-In": {
+      "resource": "jack_knife_floor",
+      "rights_status": "Repository states MIT; separate video ownership not independently verified.",
+      "visual_check": "Assignment checked against actual clip frames."
+    },
+    "Lying_Prone_Quadriceps": {
+      "resource": "lying_quadriceps_stretch",
+      "rights_status": "Repository states MIT; separate video ownership not independently verified.",
+      "visual_check": "Assignment checked against actual clip frames."
+    },
+    "Push-Ups_-_Close_Triceps_Position": {
+      "resource": "close_grip_pushup",
+      "rights_status": "Repository states MIT; separate video ownership not independently verified.",
+      "visual_check": "Assignment checked against actual clip frames."
+    }
   }
 }

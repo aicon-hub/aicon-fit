@@ -2,7 +2,7 @@
 
 ## Current test media coverage
 
-75 moves: 11 filmed demos, 16 model MP4 animations, 48 photo-morph loops.
+75 moves: 11 filmed demos, 11 model MP4 animations, 53 photo-morph loops.
 One old entry, Hyperextensions With No Hyperextension Bench, was removed because
 its actual instructions and photos require a bench and a helper.
 
@@ -40,7 +40,7 @@ Plank (Caden Phillips, U.S. Marine Corps).
 ## Photo loops and exercise data
 
 Free Exercise DB: https://github.com/yuhonas/free-exercise-db, Unlicense.
-The photo-morph loops are derived from its photos. Some instructions were edited
+The photo-morph loops are derived from its photos. The earlier restored model set had mismatched exercises. Assignments were checked against actual frames and corrected; bench-based bicycle footage was removed. Some instructions were edited
 to match floor-only or solo variants.
 
 ## 3D model animation provenance caveat
@@ -51,7 +51,7 @@ sublicense those videos have not been independently established. The repository
 licence alone must not be represented as independently verified video rights.
 These are model animations, not filmed people.
 
-Affected current moves: Sit-Up, Crunches, Cross-Body Crunch, Reverse Crunch, Butt Lift (Bridge), Scissor Kick, 3/4 Sit-Up, Air Bike, Jackknife Sit-Up, Lying Prone Quadriceps, Oblique Crunches, Oblique Crunches - On The Floor, Overhead Triceps, Push-Ups - Close Triceps Position, Rear Leg Raises, Side Jackknife.
+Affected current moves: Crunches, Reverse Crunch, Scissor Kick, Tuck Crunch, Alternate Heel Touchers, Kneeling Triceps Press, Bottoms Up, Butt-Ups, Seated Leg Tuck, Lying Prone Quadriceps, Push-Ups - Close Triceps Position.
 
 Repository licence notice follows:
 
