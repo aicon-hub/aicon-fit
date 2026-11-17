@@ -25,6 +25,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
@@ -70,6 +71,14 @@ fun DetailScreen(vm: AppViewModel, exerciseId: String) {
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
+        }
+        if (e.videoSource != null) {
+            val uriHandler = LocalUriHandler.current
+            TextButton(onClick = { uriHandler.openUri(e.videoSource) }) { Text("Source and rights") }
+        }
+        if (e.videoDisclaimer != null) {
+            Text(e.videoDisclaimer, style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant)
         }
         Spacer(Modifier.height(14.dp))
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {

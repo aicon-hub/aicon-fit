@@ -1,0 +1,82 @@
+{
+  "Mountain_Climbers": {
+    "page": "https://www.dvidshub.net/video/692520/mountain-climbers",
+    "video": "https://d34w7g4gy10iej.cloudfront.net/video/1906/DOD_106947789/DOD_106947789-1024x576-1769k.mp4",
+    "public_domain_label": true,
+    "start_seconds": 8,
+    "duration_seconds": 10,
+    "crop": null,
+    "changes": "Trimmed, muted, scaled; cropped when noted"
+  },
+  "Bodyweight_Walking_Lunge": {
+    "page": "https://www.dvidshub.net/video/551862/walking-lunge",
+    "video": "https://d34w7g4gy10iej.cloudfront.net/video/1709/DOD_104849907/DOD_104849907-1024x576-1769k.mp4",
+    "public_domain_label": true,
+    "start_seconds": 22,
+    "duration_seconds": 13,
+    "crop": null,
+    "changes": "Trimmed, muted, scaled; cropped when noted"
+  },
+  "Inchworm": {
+    "page": "https://www.dvidshub.net/video/551396/inchworm",
+    "video": "https://d34w7g4gy10iej.cloudfront.net/video/1709/DOD_104840840/DOD_104840840-1024x576-1769k.mp4",
+    "public_domain_label": true,
+    "start_seconds": 13,
+    "duration_seconds": 20,
+    "crop": null,
+    "changes": "Trimmed, muted, scaled; cropped when noted"
+  },
+  "Bodyweight_Squat": {
+    "page": "https://www.dvidshub.net/video/548443/body-weight-squat",
+    "video": "https://d34w7g4gy10iej.cloudfront.net/video/1709/DOD_104808637/DOD_104808637-1024x576-1769k.mp4",
+    "public_domain_label": true,
+    "start_seconds": 17,
+    "duration_seconds": 12,
+    "crop": null,
+    "changes": "Trimmed, muted, scaled; cropped when noted"
+  },
+  "Side_Bridge": {
+    "page": "https://www.dvidshub.net/video/640254/side-plank",
+    "video": "https://d34w7g4gy10iej.cloudfront.net/video/1811/DOD_106215246/DOD_106215246-1024x576-1769k.mp4",
+    "public_domain_label": true,
+    "start_seconds": 2,
+    "duration_seconds": 6,
+    "crop": "crop=512:280:270:290",
+    "changes": "Trimmed, muted, scaled; cropped when noted"
+  },
+  "Flutter_Kicks": {
+    "page": "https://www.dvidshub.net/video/639942/flutter-kicks",
+    "video": "https://d34w7g4gy10iej.cloudfront.net/video/1811/DOD_106211187/DOD_106211187-1024x576-1769k.mp4",
+    "public_domain_label": true,
+    "start_seconds": 1,
+    "duration_seconds": 7,
+    "crop": "crop=512:280:270:290",
+    "changes": "Trimmed, muted, scaled; cropped when noted"
+  },
+  "Burpee": {
+    "page": "https://www.dvidshub.net/video/753244/burpee",
+    "video": "https://d34w7g4gy10iej.cloudfront.net/video/2005/DOD_107821132/DOD_107821132-1024x576-1769k.mp4",
+    "public_domain_label": true,
+    "start_seconds": 0,
+    "duration_seconds": 10,
+    "crop": null,
+    "changes": "Trimmed, muted, scaled; cropped when noted"
+  },
+  "Plank": {
+    "page": "https://www.dvidshub.net/video/871026/plank-instructional-video",
+    "video": "https://d34w7g4gy10iej.cloudfront.net/video/2301/DOD_109412801/DOD_109412801.mp4",
+    "public_domain_label": true,
+    "start_seconds": 50,
+    "duration_seconds": 8,
+    "crop": null,
+    "changes": "Trimmed, muted, scaled; cropped when noted"
+  },
+  "Knee_Tuck_Jump": {
+    "page": "https://commons.wikimedia.org/wiki/File:Conditional_Drill-_Tuck_Jump.webm",
+    "video": "https://upload.wikimedia.org/wikipedia/commons/0/06/Conditional_Drill-_Tuck_Jump.webm",
+    "licence": "U.S. government public domain in the U.S.",
+    "start_seconds": 28.4,
+    "duration_seconds": 4.4,
+    "changes": "Trimmed, muted, scaled"
+  }
+}

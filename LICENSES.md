@@ -1,32 +1,59 @@
 # Third-party media licences
 
-## Exercise data and photos
-Free Exercise DB (https://github.com/yuhonas/free-exercise-db), public domain
-(Unlicense). The animated morph loops are derived from those photos.
+## Current test media coverage
 
-## Demo videos
+75 moves: 11 filmed demos, 16 model MP4 animations, 48 photo-morph loops.
+One old entry, Hyperextensions With No Hyperextension Bench, was removed because
+its actual instructions and photos require a bench and a helper.
 
-### Pushups
-"Conditioning Drill - Eight Count T Push-Up", U.S. Army Combat Fitness Test,
-public domain, via Wikimedia Commons
-(https://commons.wikimedia.org/wiki/File:Conditioning_Drill-_Eight_Count_T_Push-Up.webm).
-Trimmed to a loop.
+## DVIDS filmed demos
 
-### Star Jump
-"Jumping jacks and burpees" by Taco Fleur, CC BY-SA 4.0
-(https://creativecommons.org/licenses/by-sa/4.0/), via Wikimedia Commons
-(https://commons.wikimedia.org/wiki/File:Jumping_jacks_and_burpees.webm).
-Trimmed to a loop; the trimmed clip is distributed under the same CC BY-SA 4.0
-licence.
+Each linked source page is explicitly marked PUBLIC DOMAIN. This establishes the
+source publication status, not a waiver of personality, trademark or other rights.
+The clips are used for exercise instruction, not endorsement or promotion.
+Edits are listed below and in MEDIA_SOURCES.json.
 
-### 3D demo animations
-Incline Push-Up, Bodyweight Squat, Plank, Side Bridge, Sit-Up, 3/4 Sit-Up,
-Cross-Body Crunch, Oblique Crunches, Reverse Crunch, Bench Dips,
-Flutter Kicks, Scissor Kick, Jackknife Sit-Up, Crunches, Side Jackknife,
-Rear Leg Raises, Close Triceps Push-Up, Air Bike, Butt Lift (Bridge),
-Overhead Triceps, Lying Prone Quadriceps and Burpee use animations from
-free-exercise-db-with-videos
-(https://github.com/harshvishu/free-exercise-db-with-videos), MIT licence:
+Source terms: https://www.dvidshub.net/about/copyright
+
+The appearance of U.S. Department of War (DoW) visual information does not imply or constitute DoW endorsement.
+
+- Mountain_Climbers: https://www.dvidshub.net/video/692520/mountain-climbers | PUBLIC DOMAIN (U.S.) | 8s start, 10s excerpt | Trimmed, muted, scaled; cropped when noted
+- Bodyweight_Walking_Lunge: https://www.dvidshub.net/video/551862/walking-lunge | PUBLIC DOMAIN (U.S.) | 22s start, 13s excerpt | Trimmed, muted, scaled; cropped when noted
+- Inchworm: https://www.dvidshub.net/video/551396/inchworm | PUBLIC DOMAIN (U.S.) | 13s start, 20s excerpt | Trimmed, muted, scaled; cropped when noted
+- Bodyweight_Squat: https://www.dvidshub.net/video/548443/body-weight-squat | PUBLIC DOMAIN (U.S.) | 17s start, 12s excerpt | Trimmed, muted, scaled; cropped when noted
+- Side_Bridge: https://www.dvidshub.net/video/640254/side-plank | PUBLIC DOMAIN (U.S.) | 2s start, 6s excerpt | Trimmed, muted, scaled; cropped when noted
+- Flutter_Kicks: https://www.dvidshub.net/video/639942/flutter-kicks | PUBLIC DOMAIN (U.S.) | 1s start, 7s excerpt | Trimmed, muted, scaled; cropped when noted
+- Burpee: https://www.dvidshub.net/video/753244/burpee | PUBLIC DOMAIN (U.S.) | 0s start, 10s excerpt | Trimmed, muted, scaled; cropped when noted
+- Plank: https://www.dvidshub.net/video/871026/plank-instructional-video | PUBLIC DOMAIN (U.S.) | 50s start, 8s excerpt | Trimmed, muted, scaled; cropped when noted
+
+All DVIDS clips above credit Matthew Holfinger, U.S. Marine Corps, except
+Plank (Caden Phillips, U.S. Marine Corps).
+
+## Restored Commons filmed demos
+
+- Pushups: U.S. Army Combat Fitness Test, public domain. Trimmed. https://commons.wikimedia.org/wiki/File:Conditioning_Drill-_Eight_Count_T_Push-Up.webm
+- Star Jump: Taco Fleur, CC BY-SA 4.0. Trimmed clip distributed under the same licence. https://commons.wikimedia.org/wiki/File:Jumping_jacks_and_burpees.webm
+- CC BY-SA 4.0 licence: https://creativecommons.org/licenses/by-sa/4.0/
+
+- Knee Tuck Jump: U.S. Army Combat Fitness Test, public domain in the U.S. 28.4s start, 4.4s excerpt, muted and scaled. https://commons.wikimedia.org/wiki/File:Conditional_Drill-_Tuck_Jump.webm
+
+## Photo loops and exercise data
+
+Free Exercise DB: https://github.com/yuhonas/free-exercise-db, Unlicense.
+The photo-morph loops are derived from its photos. Some instructions were edited
+to match floor-only or solo variants.
+
+## 3D model animation provenance caveat
+
+The repository https://github.com/harshvishu/free-exercise-db-with-videos states MIT.
+Its MP4 files are hosted on an external CDN. Separate ownership and the right to
+sublicense those videos have not been independently established. The repository
+licence alone must not be represented as independently verified video rights.
+These are model animations, not filmed people.
+
+Affected current moves: Sit-Up, Crunches, Cross-Body Crunch, Reverse Crunch, Butt Lift (Bridge), Scissor Kick, 3/4 Sit-Up, Air Bike, Jackknife Sit-Up, Lying Prone Quadriceps, Oblique Crunches, Oblique Crunches - On The Floor, Overhead Triceps, Push-Ups - Close Triceps Position, Rear Leg Raises, Side Jackknife.
+
+Repository licence notice follows:
 
 MIT License
 

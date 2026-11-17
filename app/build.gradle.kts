@@ -12,8 +12,8 @@ android {
         applicationId = "com.aiconhub.fit"
         minSdk = 28
         targetSdk = 34
-        versionCode = 11
-        versionName = "1.0.3-test"
+        versionCode = 12
+        versionName = "1.0.4-test"
     }
 
     buildTypes {

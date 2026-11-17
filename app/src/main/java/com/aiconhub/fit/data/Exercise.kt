@@ -14,7 +14,10 @@ data class Exercise(
     val category: String,
     val anim: String,
     val video: String? = null,
-    val videoCredit: String? = null
+    val videoCredit: String? = null,
+    val videoSource: String? = null,
+    val videoDisclaimer: String? = null,
+    val demoKind: String = "photo_loop"
 ) {
     val group: String
         get() = when {
@@ -56,7 +59,10 @@ object ExerciseRepo {
                     category = o.optString("category", "strength"),
                     anim = o.getString("anim"),
                     video = o.optString("video").ifEmpty { null },
-                    videoCredit = o.optString("videoCredit").ifEmpty { null }
+                    videoCredit = o.optString("videoCredit").ifEmpty { null },
+                    videoSource = o.optString("videoSource").ifEmpty { null },
+                    videoDisclaimer = o.optString("videoDisclaimer").ifEmpty { null },
+                    demoKind = o.optString("demoKind", "photo_loop")
                 )
             )
         }

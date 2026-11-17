@@ -5,6 +5,7 @@ import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performScrollTo
 import com.aiconhub.fit.ui.FitTheme
 import com.github.takahirom.roborazzi.captureRoboImage
 import org.junit.Rule
@@ -67,6 +68,35 @@ class ScreenshotTest {
         composeRule.setContent { FitTheme(highContrast = false) { AppRoot(vm, showSplash = false) } }
         composeRule.waitForIdle()
         composeRule.onRoot().captureRoboImage("build/roborazzi/detail.png")
+    }
+
+
+    @Test
+    fun filmedMountainClimbers() {
+        val vm = vm(fresh = false)
+        vm.push(Screen.Detail("Mountain_Climbers"))
+        composeRule.setContent { FitTheme(highContrast = false) { AppRoot(vm, showSplash = false) } }
+        composeRule.waitForIdle()
+        composeRule.onRoot().captureRoboImage("build/roborazzi/mountain.png")
+    }
+
+    @Test
+    fun filmedLunge() {
+        val vm = vm(fresh = false)
+        vm.push(Screen.Detail("Bodyweight_Walking_Lunge"))
+        composeRule.setContent { FitTheme(highContrast = false) { AppRoot(vm, showSplash = false) } }
+        composeRule.waitForIdle()
+        composeRule.onRoot().captureRoboImage("build/roborazzi/lunge.png")
+    }
+
+    @Test
+    fun mediaCredits() {
+        val vm = vm(fresh = false)
+        vm.push(Screen.Settings)
+        composeRule.setContent { FitTheme(highContrast = false) { AppRoot(vm, showSplash = false) } }
+        composeRule.onNodeWithText("The appearance of U.S. Department of War (DoW) visual information does not imply or constitute DoW endorsement.").performScrollTo()
+        composeRule.waitForIdle()
+        composeRule.onRoot().captureRoboImage("build/roborazzi/credits.png")
     }
 
     @Test

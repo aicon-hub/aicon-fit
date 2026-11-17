@@ -211,7 +211,15 @@ fun SettingsScreen(vm: AppViewModel) {
         ) {
             Column(Modifier.padding(16.dp)) {
                 Text(
-                    "Every exercise demo comes from Wikimedia Commons and is used under its stated licence.",
+                    "75 moves: 11 filmed demos, 16 model animations and 48 photo loops. MP4 does not always mean filmed footage.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+                Spacer(Modifier.height(10.dp))
+                Text("The model-animation repository states MIT, but separate ownership of its CDN videos is not independently verified.", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                Spacer(Modifier.height(10.dp))
+                Text(
+                    "The appearance of U.S. Department of War (DoW) visual information does not imply or constitute DoW endorsement.",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
@@ -244,7 +252,7 @@ fun SettingsScreen(vm: AppViewModel) {
                 )
                 Spacer(Modifier.height(8.dp))
                 Text(
-                    "Exercise data: Free Exercise DB, public domain. Demos: Wikimedia Commons, credited above and on each exercise.",
+                    "Exercise data and photo loops: Free Exercise DB (Unlicense). Filmed demos: DVIDS and Wikimedia Commons. Model MP4s: free-exercise-db-with-videos; its repository states MIT, but separate video ownership is not independently verified.",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )

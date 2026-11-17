@@ -134,7 +134,7 @@ fun LibraryScreen(vm: AppViewModel) {
                                     reduceMotion = true,
                                     contentDescription = null,
                                     modifier = Modifier.size(68.dp),
-                                    crop = true
+                                    crop = e.video == null
                                 )
                                 // Uniform ember wash so gym backdrops read as illustrations, not ads
                                 Box(
