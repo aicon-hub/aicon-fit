@@ -1,139 +1,220 @@
 {
-  "Mountain_Climbers": {
-    "page": "https://www.dvidshub.net/video/692520/mountain-climbers",
-    "video": "https://d34w7g4gy10iej.cloudfront.net/video/1906/DOD_106947789/DOD_106947789-1024x576-1769k.mp4",
-    "public_domain_label": true,
-    "start_seconds": 8,
-    "duration_seconds": 10,
-    "crop": null,
-    "changes": "Trimmed, muted, scaled; cropped when noted"
+ "Mountain_Climbers": {
+  "page": "https://www.dvidshub.net/video/692520/mountain-climbers",
+  "video": "https://d34w7g4gy10iej.cloudfront.net/video/1906/DOD_106947789/DOD_106947789-1024x576-1769k.mp4",
+  "public_domain_label": true,
+  "start_seconds": 8,
+  "duration_seconds": 10,
+  "crop": null,
+  "changes": "Trimmed, muted, scaled; cropped when noted"
+ },
+ "Bodyweight_Walking_Lunge": {
+  "page": "https://www.dvidshub.net/video/551862/walking-lunge",
+  "video": "https://d34w7g4gy10iej.cloudfront.net/video/1709/DOD_104849907/DOD_104849907-1024x576-1769k.mp4",
+  "public_domain_label": true,
+  "start_seconds": 22,
+  "duration_seconds": 13,
+  "crop": null,
+  "changes": "Trimmed, muted, scaled; cropped when noted"
+ },
+ "Inchworm": {
+  "page": "https://www.dvidshub.net/video/551396/inchworm",
+  "video": "https://d34w7g4gy10iej.cloudfront.net/video/1709/DOD_104840840/DOD_104840840-1024x576-1769k.mp4",
+  "public_domain_label": true,
+  "start_seconds": 13,
+  "duration_seconds": 20,
+  "crop": null,
+  "changes": "Trimmed, muted, scaled; cropped when noted"
+ },
+ "Bodyweight_Squat": {
+  "page": "https://www.dvidshub.net/video/548443/body-weight-squat",
+  "video": "https://d34w7g4gy10iej.cloudfront.net/video/1709/DOD_104808637/DOD_104808637-1024x576-1769k.mp4",
+  "public_domain_label": true,
+  "start_seconds": 17,
+  "duration_seconds": 12,
+  "crop": null,
+  "changes": "Trimmed, muted, scaled; cropped when noted"
+ },
+ "Side_Bridge": {
+  "page": "https://www.dvidshub.net/video/640254/side-plank",
+  "video": "https://d34w7g4gy10iej.cloudfront.net/video/1811/DOD_106215246/DOD_106215246-1024x576-1769k.mp4",
+  "public_domain_label": true,
+  "start_seconds": 2,
+  "duration_seconds": 6,
+  "crop": "crop=512:280:270:290",
+  "changes": "Trimmed, muted, scaled; cropped when noted"
+ },
+ "Flutter_Kicks": {
+  "page": "https://www.dvidshub.net/video/639942/flutter-kicks",
+  "video": "https://d34w7g4gy10iej.cloudfront.net/video/1811/DOD_106211187/DOD_106211187-1024x576-1769k.mp4",
+  "public_domain_label": true,
+  "start_seconds": 1,
+  "duration_seconds": 7,
+  "crop": "crop=512:280:270:290",
+  "changes": "Trimmed, muted, scaled; cropped when noted"
+ },
+ "Burpee": {
+  "page": "https://www.dvidshub.net/video/753244/burpee",
+  "video": "https://d34w7g4gy10iej.cloudfront.net/video/2005/DOD_107821132/DOD_107821132-1024x576-1769k.mp4",
+  "public_domain_label": true,
+  "start_seconds": 0,
+  "duration_seconds": 10,
+  "crop": null,
+  "changes": "Trimmed, muted, scaled; cropped when noted"
+ },
+ "Plank": {
+  "page": "https://www.dvidshub.net/video/871026/plank-instructional-video",
+  "video": "https://d34w7g4gy10iej.cloudfront.net/video/2301/DOD_109412801/DOD_109412801.mp4",
+  "public_domain_label": true,
+  "start_seconds": 50,
+  "duration_seconds": 8,
+  "crop": null,
+  "changes": "Trimmed, muted, scaled; cropped when noted"
+ },
+ "Knee_Tuck_Jump": {
+  "page": "https://commons.wikimedia.org/wiki/File:Conditional_Drill-_Tuck_Jump.webm",
+  "video": "https://upload.wikimedia.org/wikipedia/commons/0/06/Conditional_Drill-_Tuck_Jump.webm",
+  "licence": "U.S. government public domain in the U.S.",
+  "start_seconds": 28.4,
+  "duration_seconds": 4.4,
+  "changes": "Trimmed, muted, scaled"
+ },
+ "_restored_models": {
+  "Crunches": {
+   "resource": "crunch_floor",
+   "rights_status": "Repository states MIT; separate video ownership not independently verified.",
+   "visual_check": "Assignment checked against actual clip frames."
   },
-  "Bodyweight_Walking_Lunge": {
-    "page": "https://www.dvidshub.net/video/551862/walking-lunge",
-    "video": "https://d34w7g4gy10iej.cloudfront.net/video/1709/DOD_104849907/DOD_104849907-1024x576-1769k.mp4",
-    "public_domain_label": true,
-    "start_seconds": 22,
-    "duration_seconds": 13,
-    "crop": null,
-    "changes": "Trimmed, muted, scaled; cropped when noted"
+  "Reverse_Crunch": {
+   "resource": "reverse_crunch",
+   "rights_status": "Repository states MIT; separate video ownership not independently verified.",
+   "visual_check": "Assignment checked against actual clip frames."
   },
-  "Inchworm": {
-    "page": "https://www.dvidshub.net/video/551396/inchworm",
-    "video": "https://d34w7g4gy10iej.cloudfront.net/video/1709/DOD_104840840/DOD_104840840-1024x576-1769k.mp4",
-    "public_domain_label": true,
-    "start_seconds": 13,
-    "duration_seconds": 20,
-    "crop": null,
-    "changes": "Trimmed, muted, scaled; cropped when noted"
+  "Scissor_Kick": {
+   "resource": "lying_scissor_kick",
+   "rights_status": "Repository states MIT; separate video ownership not independently verified.",
+   "visual_check": "Assignment checked against actual clip frames."
   },
-  "Bodyweight_Squat": {
-    "page": "https://www.dvidshub.net/video/548443/body-weight-squat",
-    "video": "https://d34w7g4gy10iej.cloudfront.net/video/1709/DOD_104808637/DOD_104808637-1024x576-1769k.mp4",
-    "public_domain_label": true,
-    "start_seconds": 17,
-    "duration_seconds": 12,
-    "crop": null,
-    "changes": "Trimmed, muted, scaled; cropped when noted"
+  "Tuck_Crunch": {
+   "resource": "sit_up",
+   "rights_status": "Repository states MIT; separate video ownership not independently verified.",
+   "visual_check": "Assignment checked against actual clip frames."
   },
-  "Side_Bridge": {
-    "page": "https://www.dvidshub.net/video/640254/side-plank",
-    "video": "https://d34w7g4gy10iej.cloudfront.net/video/1811/DOD_106215246/DOD_106215246-1024x576-1769k.mp4",
-    "public_domain_label": true,
-    "start_seconds": 2,
-    "duration_seconds": 6,
-    "crop": "crop=512:280:270:290",
-    "changes": "Trimmed, muted, scaled; cropped when noted"
+  "Alternate_Heel_Touchers": {
+   "resource": "twisting_crunch",
+   "rights_status": "Repository states MIT; separate video ownership not independently verified.",
+   "visual_check": "Assignment checked against actual clip frames."
   },
-  "Flutter_Kicks": {
-    "page": "https://www.dvidshub.net/video/639942/flutter-kicks",
-    "video": "https://d34w7g4gy10iej.cloudfront.net/video/1811/DOD_106211187/DOD_106211187-1024x576-1769k.mp4",
-    "public_domain_label": true,
-    "start_seconds": 1,
-    "duration_seconds": 7,
-    "crop": "crop=512:280:270:290",
-    "changes": "Trimmed, muted, scaled; cropped when noted"
+  "Body_Tricep_Press": {
+   "resource": "kneeling_triceps_stretch",
+   "rights_status": "Repository states MIT; separate video ownership not independently verified.",
+   "visual_check": "Assignment checked against actual clip frames."
   },
-  "Burpee": {
-    "page": "https://www.dvidshub.net/video/753244/burpee",
-    "video": "https://d34w7g4gy10iej.cloudfront.net/video/2005/DOD_107821132/DOD_107821132-1024x576-1769k.mp4",
-    "public_domain_label": true,
-    "start_seconds": 0,
-    "duration_seconds": 10,
-    "crop": null,
-    "changes": "Trimmed, muted, scaled; cropped when noted"
+  "Bottoms_Up": {
+   "resource": "jackknife",
+   "rights_status": "Repository states MIT; separate video ownership not independently verified.",
+   "visual_check": "Assignment checked against actual clip frames."
   },
-  "Plank": {
-    "page": "https://www.dvidshub.net/video/871026/plank-instructional-video",
-    "video": "https://d34w7g4gy10iej.cloudfront.net/video/2301/DOD_109412801/DOD_109412801.mp4",
-    "public_domain_label": true,
-    "start_seconds": 50,
-    "duration_seconds": 8,
-    "crop": null,
-    "changes": "Trimmed, muted, scaled; cropped when noted"
+  "Butt-Ups": {
+   "resource": "glute_bridge",
+   "rights_status": "Repository states MIT; separate video ownership not independently verified.",
+   "visual_check": "Assignment checked against actual clip frames."
   },
-  "Knee_Tuck_Jump": {
-    "page": "https://commons.wikimedia.org/wiki/File:Conditional_Drill-_Tuck_Jump.webm",
-    "video": "https://upload.wikimedia.org/wikipedia/commons/0/06/Conditional_Drill-_Tuck_Jump.webm",
-    "licence": "U.S. government public domain in the U.S.",
-    "start_seconds": 28.4,
-    "duration_seconds": 4.4,
-    "changes": "Trimmed, muted, scaled"
+  "Leg_Pull-In": {
+   "resource": "jack_knife_floor",
+   "rights_status": "Repository states MIT; separate video ownership not independently verified.",
+   "visual_check": "Assignment checked against actual clip frames."
   },
-  "_restored_models": {
-    "Crunches": {
-      "resource": "crunch_floor",
-      "rights_status": "Repository states MIT; separate video ownership not independently verified.",
-      "visual_check": "Assignment checked against actual clip frames."
-    },
-    "Reverse_Crunch": {
-      "resource": "reverse_crunch",
-      "rights_status": "Repository states MIT; separate video ownership not independently verified.",
-      "visual_check": "Assignment checked against actual clip frames."
-    },
-    "Scissor_Kick": {
-      "resource": "lying_scissor_kick",
-      "rights_status": "Repository states MIT; separate video ownership not independently verified.",
-      "visual_check": "Assignment checked against actual clip frames."
-    },
-    "Tuck_Crunch": {
-      "resource": "sit_up",
-      "rights_status": "Repository states MIT; separate video ownership not independently verified.",
-      "visual_check": "Assignment checked against actual clip frames."
-    },
-    "Alternate_Heel_Touchers": {
-      "resource": "twisting_crunch",
-      "rights_status": "Repository states MIT; separate video ownership not independently verified.",
-      "visual_check": "Assignment checked against actual clip frames."
-    },
-    "Body_Tricep_Press": {
-      "resource": "kneeling_triceps_stretch",
-      "rights_status": "Repository states MIT; separate video ownership not independently verified.",
-      "visual_check": "Assignment checked against actual clip frames."
-    },
-    "Bottoms_Up": {
-      "resource": "jackknife",
-      "rights_status": "Repository states MIT; separate video ownership not independently verified.",
-      "visual_check": "Assignment checked against actual clip frames."
-    },
-    "Butt-Ups": {
-      "resource": "glute_bridge",
-      "rights_status": "Repository states MIT; separate video ownership not independently verified.",
-      "visual_check": "Assignment checked against actual clip frames."
-    },
-    "Leg_Pull-In": {
-      "resource": "jack_knife_floor",
-      "rights_status": "Repository states MIT; separate video ownership not independently verified.",
-      "visual_check": "Assignment checked against actual clip frames."
-    },
-    "Lying_Prone_Quadriceps": {
-      "resource": "lying_quadriceps_stretch",
-      "rights_status": "Repository states MIT; separate video ownership not independently verified.",
-      "visual_check": "Assignment checked against actual clip frames."
-    },
-    "Push-Ups_-_Close_Triceps_Position": {
-      "resource": "close_grip_pushup",
-      "rights_status": "Repository states MIT; separate video ownership not independently verified.",
-      "visual_check": "Assignment checked against actual clip frames."
-    }
+  "Lying_Prone_Quadriceps": {
+   "resource": "lying_quadriceps_stretch",
+   "rights_status": "Repository states MIT; separate video ownership not independently verified.",
+   "visual_check": "Assignment checked against actual clip frames."
+  },
+  "Push-Ups_-_Close_Triceps_Position": {
+   "resource": "close_grip_pushup",
+   "rights_status": "Repository states MIT; separate video ownership not independently verified.",
+   "visual_check": "Assignment checked against actual clip frames."
   }
+ },
+ "Plyo_Push-up": {
+  "page": "https://www.dvidshub.net/video/692522/plyo-push-ups-hands-out",
+  "video": "https://d34w7g4gy10iej.cloudfront.net/video/1906/DOD_106947800/DOD_106947800.mp4",
+  "public_domain_label": true,
+  "start_seconds": 3.5,
+  "duration_seconds": 4.5,
+  "crop": null,
+  "changes": "Trimmed, muted, scaled; cropped when noted"
+ },
+ "Spider_Crawl": {
+  "page": "https://www.dvidshub.net/video/551828/spiderman",
+  "video": "https://d34w7g4gy10iej.cloudfront.net/video/1709/DOD_104849765/DOD_104849765-1024x576-1769k.mp4",
+  "public_domain_label": true,
+  "start_seconds": 10,
+  "duration_seconds": 10,
+  "crop": null,
+  "changes": "Trimmed, muted, scaled; cropped when noted"
+ },
+ "Side_Leg_Raises": {
+  "page": "https://www.dvidshub.net/video/551391/hip-abduction",
+  "video": "https://d34w7g4gy10iej.cloudfront.net/video/1709/DOD_104840826/DOD_104840826-1024x576-1769k.mp4",
+  "public_domain_label": true,
+  "start_seconds": 13,
+  "duration_seconds": 10,
+  "crop": null,
+  "changes": "Trimmed, muted, scaled; cropped when noted"
+ },
+ "Freehand_Jump_Squat": {
+  "page": "https://www.dvidshub.net/video/549351/prisoner-squat-jump",
+  "video": "https://d34w7g4gy10iej.cloudfront.net/video/1709/DOD_104817003/DOD_104817003-640x360-691k.mp4",
+  "public_domain_label": true,
+  "start_seconds": 15,
+  "duration_seconds": 12,
+  "crop": null,
+  "changes": "Trimmed, muted, scaled; cropped when noted"
+ },
+ "Sit-Up": {
+  "page": "https://www.dvidshub.net/video/1016256/culture-fitness-sit-ups",
+  "video": "https://d34w7g4gy10iej.cloudfront.net/video/2607/DOD_111863272/DOD_111863272.mp4",
+  "public_domain_label": true,
+  "start_seconds": 57.5,
+  "duration_seconds": 8,
+  "crop": null,
+  "changes": "Trimmed, muted, scaled; cropped when noted"
+ },
+ "Split_Jump": {
+  "page": "https://www.dvidshub.net/video/549955/split-squat-jump-combo",
+  "video": "https://d34w7g4gy10iej.cloudfront.net/video/1709/DOD_104823880/DOD_104823880-1024x576-1769k.mp4",
+  "public_domain_label": true,
+  "start_seconds": 28,
+  "duration_seconds": 12,
+  "crop": null,
+  "changes": "Trimmed, muted, scaled; cropped when noted"
+ },
+ "Crossover_Reverse_Lunge": {
+  "page": "https://www.dvidshub.net/video/551366/cross-over-lunge",
+  "video": "https://d34w7g4gy10iej.cloudfront.net/video/1709/DOD_104840723/DOD_104840723-1024x576-1769k.mp4",
+  "public_domain_label": true,
+  "start_seconds": 19,
+  "duration_seconds": 9,
+  "crop": null,
+  "changes": "Trimmed, muted, scaled; cropped when noted"
+ },
+ "Toe_Touchers": {
+  "page": "https://www.dvidshub.net/video/640261/toe-touches",
+  "video": "https://d34w7g4gy10iej.cloudfront.net/video/1811/DOD_106215262/DOD_106215262-1024x576-1769k.mp4",
+  "public_domain_label": true,
+  "start_seconds": 8.5,
+  "duration_seconds": 4.8,
+  "crop": null,
+  "changes": "Trimmed, muted, scaled; cropped when noted"
+ },
+ "Groiners": {
+  "page": "https://www.dvidshub.net/video/558570/groiners",
+  "video": "https://d34w7g4gy10iej.cloudfront.net/video/1710/DOD_104966727/DOD_104966727-1024x576-1769k.mp4",
+  "public_domain_label": true,
+  "start_seconds": 9,
+  "duration_seconds": 10,
+  "crop": null,
+  "changes": "Trimmed, muted, scaled; cropped when noted"
+ }
 }

@@ -12,8 +12,8 @@ android {
         applicationId = "com.aiconhub.fit"
         minSdk = 28
         targetSdk = 34
-        versionCode = 12
-        versionName = "1.0.4-test"
+        versionCode = 13
+        versionName = "1.0.5-test"
     }
 
     packaging {

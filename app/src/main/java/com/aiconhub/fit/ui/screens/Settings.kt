@@ -211,7 +211,7 @@ fun SettingsScreen(vm: AppViewModel) {
         ) {
             Column(Modifier.padding(16.dp)) {
                 Text(
-                    "75 moves: 11 filmed demos, 11 model animations and 53 photo loops. MP4 does not always mean filmed footage.",
+                    "75 moves: 20 filmed demos, 11 model animations and 44 photo loops. MP4 does not always mean filmed footage.",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )

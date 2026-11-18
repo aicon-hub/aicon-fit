@@ -2,7 +2,7 @@
 
 ## Current test media coverage
 
-75 moves: 11 filmed demos, 11 model MP4 animations, 53 photo-morph loops.
+75 moves: 20 filmed demos, 11 model MP4 animations, 44 photo-morph loops.
 One old entry, Hyperextensions With No Hyperextension Bench, was removed because
 its actual instructions and photos require a bench and a helper.
 
@@ -25,9 +25,19 @@ The appearance of U.S. Department of War (DoW) visual information does not imply
 - Flutter_Kicks: https://www.dvidshub.net/video/639942/flutter-kicks | PUBLIC DOMAIN (U.S.) | 1s start, 7s excerpt | Trimmed, muted, scaled; cropped when noted
 - Burpee: https://www.dvidshub.net/video/753244/burpee | PUBLIC DOMAIN (U.S.) | 0s start, 10s excerpt | Trimmed, muted, scaled; cropped when noted
 - Plank: https://www.dvidshub.net/video/871026/plank-instructional-video | PUBLIC DOMAIN (U.S.) | 50s start, 8s excerpt | Trimmed, muted, scaled; cropped when noted
+- Plyo_Push-up: https://www.dvidshub.net/video/692522/plyo-push-ups-hands-out | PUBLIC DOMAIN (U.S.) | 3.5s start, 4.5s excerpt | Trimmed, muted, scaled
+- Spider_Crawl: https://www.dvidshub.net/video/551828/spiderman | PUBLIC DOMAIN (U.S.) | 10s start, 10s excerpt | Trimmed, muted, scaled
+- Side_Leg_Raises: https://www.dvidshub.net/video/551391/hip-abduction | PUBLIC DOMAIN (U.S.) | 13s start, 10s excerpt | Trimmed, muted, scaled
+- Freehand_Jump_Squat: https://www.dvidshub.net/video/549351/prisoner-squat-jump | PUBLIC DOMAIN (U.S.) | 15s start, 12s excerpt | Trimmed, muted, scaled
+- Sit-Up: https://www.dvidshub.net/video/1016256/culture-fitness-sit-ups | PUBLIC DOMAIN (U.S.) | 57.5s start, 8s excerpt | Trimmed, muted, scaled
+- Split_Jump: https://www.dvidshub.net/video/549955/split-squat-jump-combo | PUBLIC DOMAIN (U.S.) | 28s start, 12s excerpt | Trimmed, muted, scaled
+- Crossover_Reverse_Lunge: https://www.dvidshub.net/video/551366/cross-over-lunge | PUBLIC DOMAIN (U.S.) | 19s start, 9s excerpt | Trimmed, muted, scaled
+- Toe_Touchers: https://www.dvidshub.net/video/640261/toe-touches | PUBLIC DOMAIN (U.S.) | 8.5s start, 4.8s excerpt | Trimmed, muted, scaled
+- Groiners: https://www.dvidshub.net/video/558570/groiners | PUBLIC DOMAIN (U.S.) | 9s start, 10s excerpt | Trimmed, muted, scaled
 
 All DVIDS clips above credit Matthew Holfinger, U.S. Marine Corps, except
-Plank (Caden Phillips, U.S. Marine Corps).
+Plank (Caden Phillips, U.S. Marine Corps) and Sit-Up (Travis Burcham, U.S. Air
+Force).
 
 ## Restored Commons filmed demos
 
